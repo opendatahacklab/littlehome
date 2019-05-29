@@ -1,0 +1,117 @@
+body{
+	background-color : white;
+	color : #444444;
+	font-family: "Courier New", courier, monotype;
+	padding-top : 2em;
+	padding-bottom : 2em;
+}
+
+abbr{
+	text-decoration:none;
+}
+
+@media only screen and (max-device-width: 600px) {
+  body {
+	font-size: 32pt;
+	padding-left : 2em;
+	padding-right : 2em;
+  }
+}
+
+@media not screen and (max-device-width: 600px) {
+  body {
+	padding-left : 10%;
+	padding-right : 10%;
+  }
+}
+
+header{
+	display: block;
+	margin : 0 0 1em 0;
+	border-bottom : solid 0.2em;
+	padding : 0;
+	min-height : 7em;
+}
+
+header + p {
+	clear: both;
+}
+
+h1, h2{
+	color : black;
+	font-family : "lucida bright", Georgia, serif;
+	font-variant:small-caps;
+	font-weight : bold;
+}
+
+h1{
+	font-size: 2em;
+	text-align : center;
+	margin : 0 auto 1em auto;
+	padding-top:1em;
+}
+
+h2{
+	font-size: 1.2em;
+}
+
+img.logo{
+	float:left;
+	max-height: 7em;
+	vertical-align : middle;
+
+}
+
+section{
+	background:none;
+	/* background-color : #f0f0f0; */
+	margin: 2em 0 1em 0;
+	padding:0;
+}
+
+
+ul.contacts{
+	list-style-type:none;
+	list-style-position:inside;
+	margin:0;
+	padding:0;
+}
+ul.contacts li{
+	line-height: 3em;
+}
+
+ul.contacts img{
+	vertical-align : middle;
+	height:2em;
+	width:2em;
+	margin : 0.2em;
+	padding:0;
+}
+
+p.indirizzo{
+	text-align:right;
+	font-style : italic;
+	margin:0 ;
+	padding:0.2em;
+}
+
+/*
+p.description{
+	background-color : #f0f0f0;
+	padding : 1em;
+	margin : 0;
+}
+*/
+
+a, a:link, a:visited, a:hover, a:active{
+	color : #666666;
+	font-weight: bold;
+}
+
+a:link, a:visited{
+	text-decoration : none;
+}
+
+ a:hover, a:active{
+	text-decoration : underline;
+}
