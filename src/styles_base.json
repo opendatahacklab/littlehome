@@ -1,0 +1,13 @@
+{
+ 	"available": [
+		{
+			"url": "src/styles/bw.css",
+			"label": "black and white"
+		},
+		{
+			"url": "src/styles/cyangray.css",
+			"label": "deep gray"
+		}
+	],
+	"selected": "src/styles/cyangray.css"
+}

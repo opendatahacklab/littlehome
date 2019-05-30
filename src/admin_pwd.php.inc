@@ -13,7 +13,7 @@
 	<p>Per confermare le modifiche &egrave; necessario inserire la password.</p>
 	<?=$message?>
 	<form action="admin_pwd.php" method="POST">
-		<label>Password</label><input type="password" name="password" />
+		<label>Password</label> <input type="password" name="password" />
 		<input type="submit" value="Avanti" />
 	</form>
 </body>

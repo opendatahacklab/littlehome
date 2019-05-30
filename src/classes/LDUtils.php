@@ -1,0 +1,32 @@
+<?php
+
+/**
+  * Some helper method to deal with JSON-LD
+  *
+  */
+class LDUtils{
+	function addObjectTripleIfNotEmpty($subject, $property, $objecturl){
+		if (!isset($objecturl) || strlen($objecturl)===0) return;
+		$subject->$property=new stdClass();
+		$subject->$property->{'@id'}=$objecturl;
+	}
+	
+	function addDataTripleIfNotEmpty($subject, $property, $value){
+		if (strlen($value)===0) return;
+		$subject->$property=$value;
+	}
+
+	/**
+	 * see https://stackoverflow.com/questions/7392274/checking-for-relative-vs-absolute-paths-urls-in-php
+	 */
+	function isAbsoluteUrl($url)
+	{
+		$pattern = "/^(?:ftp|https?|feed)?:?\/\/(?:(?:(?:[\w\.\-\+!$&'\(\)*\+,;=]|%[0-9a-f]{2})+:)*
+		(?:[\w\.\-\+%!$&'\(\)*\+,;=]|%[0-9a-f]{2})+@)?(?:
+		(?:[a-z0-9\-\.]|%[0-9a-f]{2})+|(?:\[(?:[0-9a-f]{0,4}:)*(?:[0-9a-f]{0,4})\]))(?::[0-9]+)?(?:[\/|\?]
+		(?:[\w#!:\.\?\+\|=&@$'~*,;\/\(\)\[\]\-]|%[0-9a-f]{2})*)?$/xi";
+		
+		return (bool) preg_match($pattern, $url);
+	}
+}
+?>

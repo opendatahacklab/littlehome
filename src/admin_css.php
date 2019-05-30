@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once('config.php');
+require_once('../config.php');
 require_once('classes/LDUtils.php');
 require_once('classes/SocialAccounts.php');
 require_once('classes/Organization.php');
@@ -16,20 +16,22 @@ $j=$o->json;
 
 $s=new Styles();
 if (!($s->readFromSession())){
-	if (!($s->readFromFile(STYLES_FILE)))
+	if (!($s->readFromFile("../".STYLES_FILE)))
 		$s->readFromFile('styles_base.json');
 	$selected=$s->json->selected;
 	$s->storeInSession();
 } else if ($s->readSelectedFromForm($_POST))
 	$s->storeInSession();
 
+$utils=new LDUtils();
+$css= $utils->isAbsoluteUrl($s->json->selected) ? $s->json->selected : '../'.$s->json->selected ;
 ?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
 	<title>Pagina di Amministrazione - Stile di Presentazione</title>
 	<meta charset="UTF-8" />
-  	 <link id="style" rel="stylesheet" type="text/css" href="<?=$s->json->selected?>" />
+  	 <link id="style" rel="stylesheet" type="text/css" href="<?=$css?>" />
 </head>
 <body>
 <nav>
@@ -49,7 +51,7 @@ if (!($s->readFromSession())){
 	<a href="admin_pwd.php">Avanti</a>
 </nav>
 <?php
-require('index.php.inc');
+require('home.php.inc');
 ?>
 </body>
 </html>

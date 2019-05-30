@@ -10,7 +10,7 @@ $css=isset($_GET['bw']) ? 'styles/bw.css' :  'styles/cyangray.css';
 <?php
 	if (isset($j->{'foaf:logo'}->{'@id'})){
 ?>
-		<img class="logo" src="<?=$j->{'foaf:logo'}->{'@id'}?>" /></div>
+		<img class="logo" src="<?=$j->{'foaf:logo'}->{'@id'}?>" />
 <?php } ?>
 		<h1><?=$name?></h1>
 <?php

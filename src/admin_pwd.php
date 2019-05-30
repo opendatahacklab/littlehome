@@ -1,5 +1,5 @@
 <?php
-require_once('config.php');
+require_once('../config.php');
 require('classes/Password.php');
 require_once('classes/LDUtils.php');
 require_once('classes/SocialAccounts.php');
@@ -16,10 +16,10 @@ if (isset($_POST['password'])){
 		$s=new Styles();
 		$s->readFromSession();
 
-		if ($p->readFromFile(PASSWORD_FILE))
+		if ($p->readFromFile('../'.PASSWORD_FILE))
 			if ($p->check($password)){
-				$o->writeToFile(ORGANIZATION_FILE);
-				$s->writeToFile(STYLES_FILE);
+				$o->writeToFile('../'.ORGANIZATION_FILE);
+				$s->writeToFile('../'.STYLES_FILE);
 				session_destroy();
 				include('admin_save.php.inc');
 			} else {
@@ -28,9 +28,9 @@ if (isset($_POST['password'])){
 			}
 		else {
 			if (strcmp($password, $_POST['confirm'])===0){
-				$p->writeToFile($password,PASSWORD_FILE);		
-				$o->writeToFile(ORGANIZATION_FILE);
-				$s->writeToFile(STYLES_FILE);
+				$p->writeToFile($password,'../'.PASSWORD_FILE);		
+				$o->writeToFile('../'.ORGANIZATION_FILE);
+				$s->writeToFile('../'.STYLES_FILE);
 				session_destroy();
 				include('admin_save.php.inc');
 			} else {
@@ -38,7 +38,7 @@ if (isset($_POST['password'])){
 				include('admin_create_pw.php.inc');
 			}
 		}
-} else if ($p->readFromFile(PASSWORD_FILE)){
+} else if ($p->readFromFile('../'.PASSWORD_FILE)){
 	$message="";
 	include('admin_pwd.php.inc');
 } else {

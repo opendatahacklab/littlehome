@@ -1,5 +1,5 @@
 <?php 
-require_once('config.php');
+require_once('../config.php');
 require_once('classes/LDUtils.php');
 require_once('classes/SocialAccounts.php');
 require_once('classes/Organization.php');
@@ -9,7 +9,7 @@ session_start();
 $o=new Organization();
 
 if (!$o->readFromSession())
-	$o->readFromFile(ORGANIZATION_FILE);
+	$o->readFromFile("../".ORGANIZATION_FILE);
 
 //name is mandatory
 $name=isset($o->json->{'foaf:name'}) ? $o->json->{'foaf:name'} : '';
@@ -44,22 +44,21 @@ if ($logo!==''){
 <?php
 if (isset($o->json->{'org:hasPrimarySite'}) && isset($o->json->{'org:hasPrimarySite'}->{'locn:address'})){
 	$address=$o->json->{'org:hasPrimarySite'}->{'locn:address'};
-?>
-	<label for="thoroughfare">Via/Strada/Piazza</label> <input type="text" name="thoroughfare" value="<?=$address->{'locn:thoroughfare'}?>" />
-	<label for="locatorDesignator">Numero Civico</label> <input type="text" name="locatorDesignator" value="<?=$address->{'locn:locatorDesignator'}?>" />
-	<label for="poBox"><abbr title="Codice di Avviamento Postale">CAP</abbr></label> <input type="text" name="poBox" value="<?=$address->{'locn:poBox'}?>" />
-	<label for="postName">Comune</label> <input type="text" name="postName" value="<?=$address->{'locn:postName'}?>" />
-<?php
+	$thoroughfareValueStr=isset($address->{'locn:thoroughfare'}) ? 'value="'.$address->{'locn:thoroughfare'}.'"' : ''; 
+   	$locatorDesignatorValueStr=isset($address->{'locn:locatorDesignator'}) ? 'value="'.$address->{'locn:locatorDesignator'}.'"' : '';
+	$poBoxValueStr=isset($address->{'locn:poBox'}) ? 'value="'.$address->{'locn:poBox'}.'"':'';
+	$postNameValueStr=isset($address->{'locn:postName'}) ? 'value="'.$address->{'locn:postName'}.'"':'';
 } else {
+	$thoroughfareValueStr=''; 
+	$locatorDesignatorValueStr='';
+	$poBoxValueStr='';
+	$postNameValueStr='';
+}
 ?>
-	<label for="thoroughfare">Via/Strada/Piazza/</label> <input type="text" name="thoroughfare" />
-	<label for="locatorDesignator">Numero Civico</label> <input type="text" name="locatorDesignator" />
-	<label for="poBox"><abbr title="Codice di Avviamento Postale">CAP</abbr></label> <input type="text" name="poBox" />
-	<label for="postName">Comune <input type="text" name="postName" />
-<?php
-}		
-?>	
-
+			<label for="thoroughfare">Via/Strada/Piazza</label> <input type="text" name="thoroughfare" <?=$thoroughfareValueStr?> />
+			<label for="locatorDesignator">Numero Civico</label> <input type="text" name="locatorDesignator" <?=$locatorDesignatorValueStr?> />
+			<label for="poBox"><abbr title="Codice di Avviamento Postale">CAP</abbr></label> <input type="text" name="poBox" <?=$poBoxValueStr?> />
+		       	<label for="postName">Comune</label> <input type="text" name="postName" <?=$postNameValueStr?> />
 		</fieldset>
 
 		<fieldset>
@@ -87,7 +86,6 @@ foreach($socialAccounts->presentations as $service => $presentation){
 ?>			
 		</fieldset>
 
-		<input type="reset" />
 		<input type="submit" name="fromInfo"  value="Avanti" />
 	</form>
 </body>
