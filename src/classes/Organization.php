@@ -31,20 +31,16 @@ class Organization extends JsonHelper{
 		$j->{'@id'}='me';
 		$j->{'@type'}='org:Organization';
 		$j->{'foaf:name'}=$vars['name'];
-		if (isset($vars['logo']))
-	    		$this->utils->addObjectTripleIfNotEmpty($j,'foaf:logo',$vars['logo']);
 		$this->utils->addDataTripleIfNotEmpty($j,'dcterms:description',$vars['description']);
 	
 		if (isset($vars['email']) && strlen($vars['email'])>0)
 			$this->utils->addObjectTripleIfNotEmpty($j,'foaf:mbox','mailto:'.$vars['email']);
+		if (isset($vars['logo']) && strlen($vars['logo'])>0)
+			$this->utils->addObjectTripleIfNotEmpty($j,'foaf:logo',$vars['logo']);
 		$accounts=$this->getAllSocialAccountsFromForm($vars);
 		if (count($accounts)>0)
 			$j->{'foaf:account'}=$accounts;
-	
-		if (!isset($vars['logo']))
-			$this->utils->addObjectTripleIfNotEmpty($j,'foaf:logo',$vars['oldlogo']);
-		//TODO else load logo
-	
+		
 		$address=$this->getAddressFromForm($vars);
 		if ($address!=null){
 			$site=new stdClass();

@@ -12,6 +12,9 @@ $s->readFromFile(STYLES_FILE);
 
 $title=htmlentities($j->{'foaf:name'});
 $css=$s->json->selected;
+
+if (isset($j->{'foaf:logo'}))
+	$logo=$j->{'foaf:logo'}->{'@id'};
 ?>
 <!DOCTYPE html>
 <html lang="it">

@@ -26,19 +26,14 @@ $mail=isset($o->json->{'foaf:mbox'}) ? substr($o->json->{'foaf:mbox'}->{'@id'},7
 </head>
 <body>
 	<h1>Pagina di Amministrazione - Informazioni di Base</h1>
-	<form action="admin_css.php" method="POST" enctype="multipart/form-data">
+	<form action="admin_logo.php" method="POST" enctype="multipart/form-data">
 		<label for="name">Nome</label><input type="text" name="name" value="<?=$name?>" required />
 		<label for="description">Descrizione</label>
-		<textarea name="description" rows="10" cols="20"><?=$description?></textarea>
-		<label for="logo">Logo</label>
 <?php
-if ($logo!==''){
-		echo "\t\t\t<input type=\"hidden\" name=\"oldlogo\" value=\"$logo\" />\n";
-		echo "\t\t\t<img src=\"$logo\" class=\"logo\" />\n";
-}
+if ($logo!=='')
+	echo "\t\t<input type=\"hidden\" name=\"logo\" value=\"$logo\" />\n"
 ?>
-		<input type="file" name="logo" />
-		
+		<textarea name="description" rows="10" cols="20"><?=$description?></textarea>
 		<fieldset>
 			<legend>Indirizzo</legend>
 <?php
@@ -88,5 +83,6 @@ foreach($socialAccounts->presentations as $service => $presentation){
 
 		<input type="submit" name="fromInfo"  value="Avanti" />
 	</form>
+	<a href="admin_clear.php">Esci</a>
 </body>
 </html>
