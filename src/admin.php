@@ -3,13 +3,17 @@ require_once('../config.php');
 require_once('classes/LDUtils.php');
 require_once('classes/SocialAccounts.php');
 require_once('classes/Organization.php');
+require_once('classes/Logo.php');
 
 session_start();
 
 $o=new Organization();
+$l=new Logo('../'.IMG_DIR);
 
-if (!$o->readFromSession())
+if (!$o->readFromSession()){
 	$o->readFromFile("../".ORGANIZATION_FILE);
+	$l->storeOldLogoInSession($o->json);
+}
 
 //name is mandatory
 $name=isset($o->json->{'foaf:name'}) ? $o->json->{'foaf:name'} : '';

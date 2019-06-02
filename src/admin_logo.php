@@ -8,19 +8,20 @@ require_once('classes/Logo.php');
 
 $utils=new LDUtils();
 $o=new Organization();
-$l=new Logo(IMG_DIR);
+$l=new Logo('../'.IMG_DIR);
 
 if ($o->readFromForm($_POST))
 	$o->storeInSession();
 else{
 	$o->readFromSession();
+	$hasTmpLogo=$l->getTmpLogoFromOrgJson($o->json);
+	echo "<!-- old logo ".$_SESSION['oldlogo']." -->\n";
 	if ((isset($_POST['clearLogo'])) && (strcmp($_POST['clearLogo'],'Rimuovi')===0)){
-		$l->clearTmpLogo(basename($o->json->{'foaf:logo'}->{'@id'}), '../'.IMG_DIR);
+		$l->clearTmpLogo();
 		unset($o->json->{'foaf:logo'});
 	} else if (isset($_FILES['newlogo'])){
-		$filename=$l->upload('newlogo','../'.IMG_DIR);
-		if (isset($o->json->{'foaf:logo'}) && substr($o->json->{'foaf:logo'}->{'@id'}, 0, strlen(IMG_DIR)) === IMG_DIR)
-			$l->clearTmpLogo(basename($o->json->{'foaf:logo'}->{'@id'}), '../'.IMG_DIR);
+		$filename=$l->upload('newlogo');
+		$l->clearTmpLogo();
 		$utils->addObjectTripleIfNotEmpty($o->json, 'foaf:logo', IMG_DIR.'/'.$filename);
 		$o->storeInSession();
 	}
