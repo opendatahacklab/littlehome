@@ -15,7 +15,6 @@ if ($o->readFromForm($_POST))
 else{
 	$o->readFromSession();
 	$hasTmpLogo=$l->getTmpLogoFromOrgJson($o->json);
-	echo "<!-- old logo ".$_SESSION['oldlogo']." -->\n";
 	if ((isset($_POST['clearLogo'])) && (strcmp($_POST['clearLogo'],'Rimuovi')===0)){
 		$l->clearTmpLogo();
 		unset($o->json->{'foaf:logo'});
@@ -30,6 +29,11 @@ if (!isset($o->json))
 	echo "<!-- NOOO -->\n";
 else
 	echo "<!--".(json_encode($o->json))."-->\n";
+
+if (isset($_SESSION['oldlogo']))
+	echo '<!-- oldlogo '.$_SESSION['oldlogo']." -->\n";
+else
+	echo "<!-- NO OLD LOGO -->\n";
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -55,7 +59,7 @@ if (isset($o->json->{'foaf:logo'})){
 	$logoFileName=basename($logo);
 	echo "\t<p class=\"logopreview\">\n\t\t<img src=\"../$logo\" alt=\"$logo\"/>\n\t\t<em>$logoFileName</em></p>\n\t\t<label for=\"logo\">Modifica Logo</label>\n";
 } else {
-	echo "\t<p class=\"logopreview\">\n\t\t<em>Nessun logo specificato</em></p>\n\t\t<label for=\"logo\">Inserisci Logo</label>\n";
+	echo "\t<p class=\"logopreview\">\n\t\t<em>Nessun logo specificato</em> </p>\n\t\t<label for=\"logo\">Inserisci Logo</label>\n";
 }
 ?>
 		<input type="file" name="newlogo" onchange="submit()" />

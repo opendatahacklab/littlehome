@@ -1,4 +1,7 @@
 <?php 
+
+//see also https://www.w3schools.com/w3css/w3css_input.asp
+
 require_once('../config.php');
 require_once('classes/LDUtils.php');
 require_once('classes/SocialAccounts.php');
@@ -24,22 +27,33 @@ $mail=isset($o->json->{'foaf:mbox'}) ? substr($o->json->{'foaf:mbox'}->{'@id'},7
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<title>Pagina di Amministrazione - Informazioni di Base</title>
+	<title>FriendlyHome - Amministrazione Sito - Informazioni</title>
 	<meta charset="UTF-8" />
-	 <link rel="stylesheet" type="text/css" href="admin.css">
+	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" />
+	<link rel="stylesheet" type="text/css" href="admin.css" />
 </head>
 <body>
-	<h1>Pagina di Amministrazione - Informazioni di Base</h1>
-	<form action="admin_logo.php" method="POST" enctype="multipart/form-data">
-		<label for="name">Nome</label><input type="text" name="name" value="<?=$name?>" required />
-		<label for="description">Descrizione</label>
+	<h1>Amministrazione Sito - Informazioni</h1>
+	<form action="admin_logo.php" hod="POST" enctype="multipart/form-data">
+		<div class="w3-card-4">
+			<div class="w3-container w3-teal">
+				<h2>Informazioni di Base</h2>
+			</div>
+			<fieldset class="w3-container">
+				<p><label for="name">Nome</label><input type="text" class="w3-input w3-border" name="name" value="<?=$name?>" required /></p>
+				<p><label for="description">Descrizione</label>
 <?php
 if ($logo!=='')
-	echo "\t\t<input type=\"hidden\" name=\"logo\" value=\"$logo\" />\n"
+	echo "\t\t\t\t<input type=\"hidden\" name=\"logo\" value=\"$logo\" />\n"
 ?>
-		<textarea name="description" rows="10" cols="20"><?=$description?></textarea>
-		<fieldset>
-			<legend>Indirizzo</legend>
+			<textarea name="description" class="w3-input w3-border"><?=$description?></textarea></p>
+		</div>
+
+		<div class="w3-card-4">
+			<div class="w3-container w3-teal">
+				<h2>Indirizzo</h2>
+			</div>
+			<fieldset class="w3-container">
 <?php
 if (isset($o->json->{'org:hasPrimarySite'}) && isset($o->json->{'org:hasPrimarySite'}->{'locn:address'})){
 	$address=$o->json->{'org:hasPrimarySite'}->{'locn:address'};
@@ -54,15 +68,19 @@ if (isset($o->json->{'org:hasPrimarySite'}) && isset($o->json->{'org:hasPrimaryS
 	$postNameValueStr='';
 }
 ?>
-			<label for="thoroughfare">Via/Strada/Piazza</label> <input type="text" name="thoroughfare" <?=$thoroughfareValueStr?> />
-			<label for="locatorDesignator">Numero Civico</label> <input type="text" name="locatorDesignator" <?=$locatorDesignatorValueStr?> />
-			<label for="poBox"><abbr title="Codice di Avviamento Postale">CAP</abbr></label> <input type="text" name="poBox" <?=$poBoxValueStr?> />
-		       	<label for="postName">Comune</label> <input type="text" name="postName" <?=$postNameValueStr?> />
-		</fieldset>
+				<p><label for="thoroughfare">Via/Strada/Piazza</label> <input type="text" name="thoroughfare" class="w3-input w3-border" <?=$thoroughfareValueStr?> /></p>
+				<p><label for="locatorDesignator">Numero Civico</label> <input type="text" name="locatorDesignator" class="w3-input w3-border" <?=$locatorDesignatorValueStr?> /></p>
+				<p><label for="poBox"><abbr title="Codice di Avviamento Postale">CAP</abbr></label> <input type="text" name="poBox" class="w3-input w3-border" <?=$poBoxValueStr?> /></p>
+			       	<p><label for="postName">Comune</label> <input type="text" name="postName" class="w3-input w3-border" <?=$postNameValueStr?> /></p>
+			</fieldset>
+		</div>
 
-		<fieldset>
-			<legend>Contatti</legend>
-			<label for="email">e-mail</label> (lasciare vuoto se non disponibile) <code>mailto:</code><input name="email" type="email" value="<?=$mail?>" />
+		<div class="w3-card-4">
+			<div class="w3-container w3-teal">
+				<h2>Contatti</h2>
+			</div>
+			<fieldset "w3-container">
+				<p><label for="email">e-mail</label> (lasciare vuoto se non disponibile) <input name="email" type="email" value="<?=$mail?>" class="w3-input w3-border" /> </p>
 <?php
 $socialAccounts=new SocialAccounts();
 foreach($socialAccounts->presentations as $service => $presentation){
@@ -72,21 +90,24 @@ foreach($socialAccounts->presentations as $service => $presentation){
 	$urlField=$presentation->urlField;
 	echo "\t\t\t<fieldset>\n\t\t\t\t<legend>$serviceId</legend>\n";
 	if ($account===NULL){
-		echo "\t\t\t\t<label for=\"$nameField\">Nome dell'account</label><input type=\"text\" name=\"$nameField\" />\n";
-		echo "\t\t\t\t<label for=\"$urlField\">indirizzo pubblico (URL) dell'account</label><input type=\"url\" name=\"$urlField\" />\n";
+ 		echo "\t\t\t\t<p><label for=\"$nameField\">Nome dell'account</label><input type=\"text\" name=\"$nameField\" class=\"w3-input w3-border\" /></p>\n";
+		echo "\t\t\t\t<p><label for=\"$urlField\">indirizzo pubblico (URL) dell'account</label><input type=\"url\" name=\"$urlField\" class=\"w3-input w3-border\" /></p>\n";
 	} else {
 		$accountName=$account->{'foaf:accountName'};
 		$accountURL=$account->{'@id'};
-		echo "\t\t\t\t<label for=\"$nameField\">Nome dell'account</label><input type=\"text\" name=\"$nameField\" value=\"$accountName\"/>\n";
-		echo "\t\t\t\t<label for=\"$urlField\">indirizzo pubblico (URL) dell'account</label><input type=\"url\" name=\"$urlField\" value=\"$accountURL\"/>\n";
+		echo "\t\t\t\t<label for=\"$nameField\">Nome dell'account</label><input type=\"text\" name=\"$nameField\" value=\"$accountName\" class=\"w3-input w3-border\" />\n";
+		echo "\t\t\t\t<label for=\"$urlField\">indirizzo pubblico (URL) dell'account</label><input type=\"url\" name=\"$urlField\" value=\"$accountURL\" class=\"w3-input w3-border\" />\n";
 	}
 	echo "\t\t\t</fieldset>\n";
 }
 ?>			
-		</fieldset>
+			</fieldset>
+		</div>
 
-		<input type="submit" name="fromInfo"  value="Avanti" />
+		<nav class="nextprev">
+			<a href="admin_clear.php" class="w3-btn w3-teal ">Esci &#10006;</a>
+			<input type="submit" name="fromInfo"  value="Avanti &#10095;" class="w3-btn w3-teal " />
+		</nav>
 	</form>
-	<a href="admin_clear.php">Esci</a>
 </body>
 </html>

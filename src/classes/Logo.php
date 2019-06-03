@@ -44,7 +44,7 @@ class Logo{
 	  */	
 	function storeOldLogoInSession($orgjson){
 		if (isset($orgjson->{'foaf:logo'}) && !($this->utils->isAbsoluteUrl($orgjson->{'foaf:logo'}->{'@id'}))){
- 				$_SESSION['oldlogo']=$orgjson->{'foaf:logo'}->{'@id'};
+ 				$_SESSION['oldlogo']=basename($orgjson->{'foaf:logo'}->{'@id'});
 		}
 	}
 
@@ -56,8 +56,17 @@ class Logo{
 	  * @return new logo file name
 	  */
 	function upload($logoFileFieldName){
-		$filename=basename($_FILES[$logoFileFieldName]['name']); //todo avoid collisions
+		$filename=$this->getFilenameAvoidCollisions(basename($_FILES[$logoFileFieldName]['name']));
 		move_uploaded_file($_FILES[$logoFileFieldName]['tmp_name'], $this->imgDir.'/'.$filename);
+		return $filename;
+	}
+
+	/**
+	  * get a filename from a base one which does not collides with other files in the img dir.
+	  */	
+	function getFilenameAvoidCollisions($filename){
+		if (file_exists($this->imgDir.'/'.$filename))
+			return $this->getFilenameAvoidCollisions("_$filename");
 		return $filename;
 	}
 
@@ -78,6 +87,15 @@ class Logo{
 			}
 		unlink($this->imgDir.'/'.$this->tmpLogo);
 		unset($this->tmpLogo);
+	}
+
+	/**
+	  * make the temporary logo as the definitive one. Clear the old logo if any.
+	  */	
+	function handleTmpLogoConfirmed(){
+		if (isset($_SESSION['oldlogo'])) 
+			if (!isset($this->tmpLogo) || strcmp($_SESSION['oldlogo'],$this->tmpLogo)!==0 )
+				unlink($this->imgDir.'/'.$_SESSION['oldlogo']);
 	}
 }
 ?>
