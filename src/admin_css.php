@@ -29,17 +29,18 @@ if (isset($j->{'foaf:logo'}))
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<title>Pagina di Amministrazione - Stile di Presentazione</title>
+	<title>FriendlyHome - Amministrazione Sito - Stile</title>
 	<meta charset="UTF-8" />
   	 <link id="style" rel="stylesheet" type="text/css" href="<?=$css?>" />
+  	 <link id="style" rel="stylesheet" type="text/css" href="admin_css.css" />
 </head>
 <body>
-<nav>
-	<a href="admin_logo.php">Indietro</a>
+<nav class="friendlyhome_admin_css">
+	<a href="admin_logo.php" class="w3-btn w3-teal">&#10094; Indietro</a>
 	<form  method="POST">
 		<!-- a href="admin.php">Indietro</a -->
 		<label for="style">Seleziona uno stile</label>
-		<select name="style" onchange="submit()">
+		<select name="style" onchange="submit()" class="w3-input">
 <?php
 	foreach($s->json->available as $style){
 		$selectedStr=strcmp($style->url, $s->json->selected)===0 ? 'selected' : '';
@@ -48,7 +49,8 @@ if (isset($j->{'foaf:logo'}))
 ?>
 		</select> 
 	</form>
-	<a href="admin_pwd.php">Avanti</a>
+	<a href="admin_clear.php" class="w3-btn w3-teal">Esci &#10006;</a>
+	<a href="admin_pwd.php" class="w3-btn w3-teal">Avanti &#10095;</a>
 </nav>
 <?php
 require('home.php.inc');

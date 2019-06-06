@@ -38,33 +38,37 @@ else
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<title>Pagina di Amministrazione - Logo</title>
+	<title>FriendlyHome - Amministrazione Sito - Logo</title>
 	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" />
 	 <link rel="stylesheet" type="text/css" href="admin.css">
 </head>
 <body>
-	<h1>Pagina di Amministrazione - Logo</h1>
-	<nav>
-		<a href="admin.php">Indietro</a>
-		<a href="admin_css.php">Avanti</a>
-		<a href="admin_clear.php">Esci</a>
-	</nav>
+	<h1>Amministrazione Sito - Logo</h1>
 <?php
 ?>		
 	
-	<form action="admin_logo.php" method="POST" enctype="multipart/form-data">
+	<div class="w3-card-4">
+	<form action="admin_logo.php" method="POST" enctype="multipart/form-data" class="w3-container">
 <?php
 if (isset($o->json->{'foaf:logo'})){
 	$logo=$o->json->{'foaf:logo'}->{'@id'};
 	$logoFileName=basename($logo);
-	echo "\t<p class=\"logopreview\">\n\t\t<img src=\"../$logo\" alt=\"$logo\"/>\n\t\t<em>$logoFileName</em></p>\n\t\t<label for=\"logo\">Modifica Logo</label>\n";
+	echo "\t<p class=\"logopreview\">\n\t\t<img src=\"../$logo\" alt=\"$logo\"/>\n\t\t<p><code>$logoFileName</code></p>\n\t\t<p><label for=\"logo\">Modifica Logo</label>\n";
 } else {
-	echo "\t<p class=\"logopreview\">\n\t\t<em>Nessun logo specificato</em> </p>\n\t\t<label for=\"logo\">Inserisci Logo</label>\n";
+	echo "\t<p class=\"logopreview\">\n\t\t<em>Nessun logo specificato</em> </p>\n\t\t<p><label for=\"logo\">Inserisci Logo</label>\n";
 }
 ?>
-		<input type="file" name="newlogo" onchange="submit()" />
-		<input type="submit" name="clearLogo" value="Rimuovi" />
+		<input type="file" name="newlogo" onchange="submit()" class="w3-input w3-border" /></p>
+		<p><input type="submit" class="w3-btn w3-teal" name="clearLogo" value="Rimuovi Logo" /></p>
 	</form>
+	</div>
+
+	<nav class="nextprev">
+		<a href="admin.php" class="w3-btn w3-teal ">&#10094; Indietro</a>
+		<a href="admin_clear.php" class="w3-btn w3-teal">Esci &#10006;</a>
+		<a href="admin_css.php" class="w3-btn w3-teal ">Avanti &#10095;</a>
+	</nav>
 </body>
 </html>
  

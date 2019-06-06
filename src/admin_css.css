@@ -1,0 +1,25 @@
+nav.friendlyhome_admin_css{
+	background-color : white;
+	padding : 1em;
+}
+
+nav.friendlyhome_admin_css form{
+	background-color : white;
+	display: inline-block;
+}
+
+//see view-source:https://www.w3schools.com/w3css/4/w3.css
+
+nav.friendlyhome_admin_css label{color:black}
+nav.friendlyhome_admin_css label{font-family:Verdana,sans-serif; font-size:15px;line-height:1.5; overflow-x:hidden; color:black;}
+nav.friendlyhome_admin_css a{background-color:transparent;-webkit-text-decoration-skip:objects;}
+nav.friendlyhome_admin_css a:active, nav.friendlyhome_admin_css a:hover{outline-width:0}
+
+nav.friendlyhome_admin_css .w3-btn{
+border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap;
+-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+}
+
+nav.friendlyhome_admin_css .w3-btn:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
+nav.friendlyhome_admin_css .w3-teal{color:#fff!important;background-color:#009688!important} 
+nav.friendlyhome_admin_css .w3-input{padding:8px;display:inline-block;border:none;border-bottom:1px solid #ccc;}

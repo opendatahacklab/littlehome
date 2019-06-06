@@ -1,11 +1,16 @@
 img.logo{
-	max-height : 4em;
+	max-height : 10em;
+	max-width : 10em
 }
 
 body{
 	padding : 2em 2em 2em 2em;
 }
 
+nav{
+	margin-bottom:1em;
+
+}
 div.w3-card-4{
 	margin-top:1em;
 	margin-bottom:1em;
@@ -18,4 +23,8 @@ div.w3-card-4{
 
 fieldset{
 	border:none;
+}
+
+input[type="file"]{
+	padding:2em 2em 2em 2em;
 }

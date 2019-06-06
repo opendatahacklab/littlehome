@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<title>Pagina di Amministrazione - Modifiche Effettuate</title>
+	<title>FriendlyHome - Amministrazione Sito - Fine</title>
 	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" />
 	<link id="style" rel="stylesheet" type="text/css" href="admin.css" />
 </head>
 <body>
-	<h1>Pagina di Amministrazione - Modifiche Effettuate</h1>
+	<h1>Amministrazione Sito - Fine</h1>
 	<p>Le modifiche sono state effettuate con successo.</p>
-	<p><a href="../index.php">Vai al Sito</a></p>
+	<p><a href="../index.php" class="w3-btn w3-teal ">Vai al Sito</a></p>
 </body>
 </html>

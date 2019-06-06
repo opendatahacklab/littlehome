@@ -88,7 +88,7 @@ foreach($socialAccounts->presentations as $service => $presentation){
 	$account=$socialAccounts->getAccount($o->json,$service);
 	$nameField=$presentation->nameField;
 	$urlField=$presentation->urlField;
-	echo "\t\t\t<fieldset>\n\t\t\t\t<legend>$serviceId</legend>\n";
+	echo "\t\t\t\t<h3>$serviceId</h3>\n";
 	if ($account===NULL){
  		echo "\t\t\t\t<p><label for=\"$nameField\">Nome dell'account</label><input type=\"text\" name=\"$nameField\" class=\"w3-input w3-border\" /></p>\n";
 		echo "\t\t\t\t<p><label for=\"$urlField\">indirizzo pubblico (URL) dell'account</label><input type=\"url\" name=\"$urlField\" class=\"w3-input w3-border\" /></p>\n";
@@ -98,7 +98,6 @@ foreach($socialAccounts->presentations as $service => $presentation){
 		echo "\t\t\t\t<label for=\"$nameField\">Nome dell'account</label><input type=\"text\" name=\"$nameField\" value=\"$accountName\" class=\"w3-input w3-border\" />\n";
 		echo "\t\t\t\t<label for=\"$urlField\">indirizzo pubblico (URL) dell'account</label><input type=\"url\" name=\"$urlField\" value=\"$accountURL\" class=\"w3-input w3-border\" />\n";
 	}
-	echo "\t\t\t</fieldset>\n";
 }
 ?>			
 			</fieldset>
