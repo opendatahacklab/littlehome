@@ -34,7 +34,7 @@ $mail=isset($o->json->{'foaf:mbox'}) ? substr($o->json->{'foaf:mbox'}->{'@id'},7
 </head>
 <body>
 	<h1>Amministrazione Sito - Informazioni</h1>
-	<form action="admin_logo.php" hod="POST" enctype="multipart/form-data">
+	<form action="admin_logo.php" method="POST" enctype="multipart/form-data">
 		<div class="w3-card-4">
 			<div class="w3-container w3-teal">
 				<h2>Informazioni di Base</h2>
@@ -46,7 +46,8 @@ $mail=isset($o->json->{'foaf:mbox'}) ? substr($o->json->{'foaf:mbox'}->{'@id'},7
 if ($logo!=='')
 	echo "\t\t\t\t<input type=\"hidden\" name=\"logo\" value=\"$logo\" />\n"
 ?>
-			<textarea name="description" class="w3-input w3-border"><?=$description?></textarea></p>
+				<textarea name="description" class="w3-input w3-border" rows="10"><?=$description?></textarea></p>
+			</fieldset>
 		</div>
 
 		<div class="w3-card-4">
@@ -71,7 +72,7 @@ if (isset($o->json->{'org:hasPrimarySite'}) && isset($o->json->{'org:hasPrimaryS
 				<p><label for="thoroughfare">Via/Strada/Piazza</label> <input type="text" name="thoroughfare" class="w3-input w3-border" <?=$thoroughfareValueStr?> /></p>
 				<p><label for="locatorDesignator">Numero Civico</label> <input type="text" name="locatorDesignator" class="w3-input w3-border" <?=$locatorDesignatorValueStr?> /></p>
 				<p><label for="poBox"><abbr title="Codice di Avviamento Postale">CAP</abbr></label> <input type="text" name="poBox" class="w3-input w3-border" <?=$poBoxValueStr?> /></p>
-			       	<p><label for="postName">Comune</label> <input type="text" name="postName" class="w3-input w3-border" <?=$postNameValueStr?> /></p>
+				<p><label for="postName">Comune</label> <input type="text" name="postName" class="w3-input w3-border" <?=$postNameValueStr?> /></p>
 			</fieldset>
 		</div>
 

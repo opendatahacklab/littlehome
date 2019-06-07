@@ -15,7 +15,7 @@ if ($o->readFromForm($_POST))
 else{
 	$o->readFromSession();
 	$hasTmpLogo=$l->getTmpLogoFromOrgJson($o->json);
-	if ((isset($_POST['clearLogo'])) && (strcmp($_POST['clearLogo'],'Rimuovi')===0)){
+	if (isset($_POST['clearLogo'])){
 		$l->clearTmpLogo();
 		unset($o->json->{'foaf:logo'});
 	} else if (isset($_FILES['newlogo'])){

@@ -22,8 +22,9 @@ class Organization extends JsonHelper{
 	 * @return true if the json object has been created from the post request, false otherwise
 	 */
 	public function readFromForm($vars){
-		if (!isset($_POST['fromInfo'])) 
+		if (!isset($_POST['fromInfo'])){ 
 			return false;
+		}
 		$j=new stdClass();
 		
 		$context=json_decode(file_get_contents('org_context.json'));
