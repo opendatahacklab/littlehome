@@ -46,6 +46,11 @@ if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'})){
 			echo "\t\t".'<li><img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/PICOL_icon_Mail.svg" /> e-mail <a href="mailto:'.$mail.'">'.$mail.'</a></li>'."\n";
 	}
 
+	if (isset($j->{'foaf:phone'})){
+			$phone=str_replace('tel:','',$j->{'foaf:phone'}->{'@id'});
+			echo "\t\t".'<li><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/1195445181899094722molumen_phone_icon.svg.hi.png" /> tel <a href="tel:'.$phone.'">'.$phone.'</a></li>'."\n";
+	}
+
 	$socialAccounts=new SocialAccounts();
 	if (isset($j->{'foaf:account'}))
 		foreach($j->{'foaf:account'} as $account){
@@ -68,5 +73,7 @@ if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'})){
 		<ul>
 			<li> PICOL, PIctorial COmmunication Language <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a></li>
 			<li>Subhashish Panigrahi <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+			<li>Ellipol <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+			<!-- <a title="Ellipol [CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:1195445181899094722molumen_phone_icon.svg.hi.png"><img width="512" alt="1195445181899094722molumen phone icon.svg.hi" src="https://upload.wikimedia.org/wikipedia/commons/1/15/1195445181899094722molumen_phone_icon.svg.hi.png"></a> -->
 		</ul>
 	</section>

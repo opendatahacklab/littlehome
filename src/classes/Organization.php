@@ -36,6 +36,8 @@ class Organization extends JsonHelper{
 	
 		if (isset($vars['email']) && strlen($vars['email'])>0)
 			$this->utils->addObjectTripleIfNotEmpty($j,'foaf:mbox','mailto:'.$vars['email']);
+		if (isset($vars['phone']) && strlen($vars['phone'])>0)
+			$this->utils->addObjectTripleIfNotEmpty($j,'foaf:phone','tel:'.$vars['phone']);
 		if (isset($vars['logo']) && strlen($vars['logo'])>0)
 			$this->utils->addObjectTripleIfNotEmpty($j,'foaf:logo',$vars['logo']);
 		$accounts=$this->getAllSocialAccountsFromForm($vars);

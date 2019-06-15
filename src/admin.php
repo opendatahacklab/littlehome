@@ -23,6 +23,7 @@ $name=isset($o->json->{'foaf:name'}) ? $o->json->{'foaf:name'} : '';
 $description=isset($o->json->{'dcterms:description'}) ? $o->json->{'dcterms:description'} : '';
 $logo=isset($o->json->{'foaf:logo'}) ? $o->json->{'foaf:logo'}->{'@id'} : '';
 $mail=isset($o->json->{'foaf:mbox'}) ? substr($o->json->{'foaf:mbox'}->{'@id'},7) : '';
+$phone=isset($o->json->{'foaf:phone'}) ? substr($o->json->{'foaf:phone'}->{'@id'},4) : '';
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -81,7 +82,8 @@ if (isset($o->json->{'org:hasPrimarySite'}) && isset($o->json->{'org:hasPrimaryS
 				<h2>Contatti</h2>
 			</div>
 			<fieldset "w3-container">
-				<p><label for="email">e-mail</label> (lasciare vuoto se non disponibile) <input name="email" type="email" value="<?=$mail?>" class="w3-input w3-border" /> </p>
+				<p><label for="email">E-mail</label> <input name="email" type="email" value="<?=$mail?>" class="w3-input w3-border" /> </p>
+				<p><label for="phone">Telefono</label>  <input name="phone" type="tel" value="<?=$phone?>" class="w3-input w3-border" /> </p>
 <?php
 $socialAccounts=new SocialAccounts();
 foreach($socialAccounts->presentations as $service => $presentation){
