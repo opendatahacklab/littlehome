@@ -1,6 +1,6 @@
 # LITTLEHOME
 
-__A really simple one-page web site for a small organization. Provide information about the organization as open data.__
+_A really simple one-page web site for a small organization. Provide information about the organization as open data._
 
 LittleHome è un progetto di software libero rivolto alle piccole organizzazioni per realizzare una propria home page sul web con minimo impiego di risorse.
 
