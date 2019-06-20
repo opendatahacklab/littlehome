@@ -1,10 +1,10 @@
-# LittleHome
+# LITTLEHOME
 
-A really simple one-page web site for a small organization. Provide information about the organization as open data.
+__A really simple one-page web site for a small organization. Provide information about the organization as open data.__
 
 LittleHome è un progetto di software libero rivolto alle piccole organizzazioni per realizzare una propria home page sul web con minimo impiego di risorse.
 
-#PERCHÈ UNA HOME PAGE
+# Perchè una Home Page
 
 La **comunicazione di ogni tipologia di organizzazione** e attività è opportuno che avvenga con **diverse modalità** (testo, video, immagini, ...) e su **diversi 
 canali** (web, cartaceo, tv, radio, ...). Solitamente, per la comunicazione su internet le organizzazioni usufruiscono di diverse "piattaforme" 
@@ -20,7 +20,7 @@ piattaforme che prima non usava, ad esempio di creare un canale youtube.
 La home page negli anni, associata ad una URL (tipo www.miassociazione.it), diventa il punto di riferimento immutabile attraverso il quale gli **interessati
 e i simpatizzanti sapranno sempre come contattarvi e restare aggiornati**.
 
-#PERCHÈ LITTLEHOME
+# Perchè LittleHome
 
 **LittleHome è semplice e veloce da usare**: in pochi passi permette alle piccole organizzazioni di creare la propria home page con le informazioni e i contatti.
 
