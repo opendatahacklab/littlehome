@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<title>FriendlyHome - Amministrazione Sito - Conferma</title>
+	<title>LittleHome - Amministrazione Sito - Conferma</title>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" />
 	<link id="style" rel="stylesheet" type="text/css" href="admin.css" />

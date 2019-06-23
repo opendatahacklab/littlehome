@@ -5,7 +5,7 @@ session_destroy();
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<title>FriendlyHome - Amministrazione Sito - Arrivederci</title>
+	<title>LittleHome - Amministrazione Sito - Arrivederci</title>
 	<meta charset="UTF-8" />
 	 <link rel="stylesheet" type="text/css" href="admin.css" />
 	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" />

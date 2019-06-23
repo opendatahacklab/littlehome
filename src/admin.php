@@ -28,7 +28,7 @@ $phone=isset($o->json->{'foaf:phone'}) ? substr($o->json->{'foaf:phone'}->{'@id'
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<title>FriendlyHome - Amministrazione Sito - Informazioni</title>
+	<title>LittleHome - Amministrazione Sito - Informazioni</title>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" />
 	<link rel="stylesheet" type="text/css" href="admin.css" />

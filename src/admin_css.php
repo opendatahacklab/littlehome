@@ -29,7 +29,7 @@ if (isset($j->{'foaf:logo'}))
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<title>FriendlyHome - Amministrazione Sito - Stile</title>
+	<title>LittleHome - Amministrazione Sito - Stile</title>
 	<meta charset="UTF-8" />
   	 <link id="style" rel="stylesheet" type="text/css" href="<?=$css?>" />
   	 <link id="style" rel="stylesheet" type="text/css" href="admin_css.css" />

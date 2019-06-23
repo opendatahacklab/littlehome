@@ -48,7 +48,7 @@ if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'})){
 
 	if (isset($j->{'foaf:phone'})){
 			$phone=str_replace('tel:','',$j->{'foaf:phone'}->{'@id'});
-			echo "\t\t".'<li><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/1195445181899094722molumen_phone_icon.svg.hi.png" /> tel <a href="tel:'.$phone.'">'.$phone.'</a></li>'."\n";
+			echo "\t\t".'<li><img src="icons/iconfinder_aiga_telephone_bg_134149.svg" /> tel <a href="tel:'.$phone.'">'.$phone.'</a></li>'."\n";
 	}
 
 	$socialAccounts=new SocialAccounts();
