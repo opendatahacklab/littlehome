@@ -5,6 +5,10 @@
 			"label": "black and white"
 		},
 		{
+			"url": "src/styles/lightblue.css",
+			"label": "light blue"
+		},
+		{
 			"url": "src/styles/cyangray.css",
 			"label": "deep gray"
 		}

@@ -15,6 +15,8 @@ $css=$s->json->selected;
 
 if (isset($j->{'foaf:logo'}))
 	$logo=$j->{'foaf:logo'}->{'@id'};
+
+$srcpath='src';
 ?>
 <!DOCTYPE html>
 <html lang="it">

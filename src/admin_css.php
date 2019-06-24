@@ -25,6 +25,8 @@ $css= $utils->isAbsoluteUrl($s->json->selected) ? $s->json->selected : '../'.$s-
 if (isset($j->{'foaf:logo'}))
 	$logo=$utils->isAbsoluteUrl($j->{'foaf:logo'}->{'@id'}) ? $j->{'foaf:logo'}->{'@id'} : '../'.$j->{'foaf:logo'}->{'@id'};
 
+$srcpath='.';
+
 ?>
 <!DOCTYPE html>
 <html lang="it">

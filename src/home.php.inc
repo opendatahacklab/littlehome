@@ -35,7 +35,7 @@ $css=isset($_GET['bw']) ? 'styles/bw.css' :  'styles/cyangray.css';
 <?php
 }
 
-if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'})){
+if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'}) || isset($j->{'foaf:phone'}) ){
 ?>
 	<section>
 		<h2>Contatti</h2>
@@ -48,7 +48,7 @@ if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'})){
 
 	if (isset($j->{'foaf:phone'})){
 			$phone=str_replace('tel:','',$j->{'foaf:phone'}->{'@id'});
-			echo "\t\t".'<li><img src="icons/iconfinder_aiga_telephone_bg_134149.svg" /> tel <a href="tel:'.$phone.'">'.$phone.'</a></li>'."\n";
+			echo "\t\t".'<li><img src="'.$srcpath.'/icons/iconfinder_Call01_928412.svg" /> tel <a href="tel:'.$phone.'">'.$phone.'</a></li>'."\n";
 	}
 
 	$socialAccounts=new SocialAccounts();
