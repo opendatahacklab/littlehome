@@ -31,3 +31,8 @@ più diffusi fornitori di servizi di hosting web (aruba, altervista, tophost, ..
 
 **In poche parole, chiunque abbia le competenze minime necessarie per realizzare 
 un sito web può facilmente creare la propria littlehome senza dover richiedere alcuna autorizzazione e utilizzando anche hosting  economici.**
+
+# Crediti
+
+LittleHome è un progetto di [Hackspace Catania](http://hackspacecatania.it/) ed è rilasciato con licenza [LGPL 3.0](https://www.gnu.org/licenses/lgpl-3.0.en.html) . Per la visualizzazione degli articoli nel blog utilizza la libreria 
+[PHP Markdown](https://michelf.ca/projects/php-markdown/) (Copyright (c) 2004-2018 Michel Fortin).

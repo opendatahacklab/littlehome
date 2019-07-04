@@ -1,5 +1,8 @@
 <?php
 require_once('JsonHelper.php');
+require_once('LDUtils.php');
+require_once('SocialAccounts.php');
+
 /**
   * Methods related to organizations
   */ 

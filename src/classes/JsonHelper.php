@@ -42,7 +42,6 @@ class JsonHelper{
 	  * @return true if the file exists, false otherwise
 	  */
 	public function readFromFile($path){
-		echo "<!-- readFromFile($path)-->\n";
 		if (!file_exists($path)) return false;
 		$s=file_get_contents($path);
 		$this->json=json_decode($s,false);
@@ -57,6 +56,5 @@ class JsonHelper{
 		$s=json_encode($this->json);
 		file_put_contents($path,$s);
 	}
-
 }
 ?>

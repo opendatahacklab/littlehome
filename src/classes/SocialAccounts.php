@@ -9,9 +9,9 @@ class SocialAccounts{
 	function __construct(){
 		$this->services=array('http://www.facebook.com','http://www.twitter.com');
 		$this->presentations = array(
-			'http://www.facebook.com' => new AccountPresentation('https://upload.wikimedia.org/wikipedia/commons/c/c3/Facebook_icon_%28black%29.svg','facebook','facebook_page_name','facebook_page_url'),
+			'http://www.facebook.com' => new AccountPresentation('icons/iconfinder_facebook_alt_115478.png','facebook','facebook_page_name','facebook_page_url'),
 			//TODO credits
-			'http://www.twitter.com' => new AccountPresentation('https://upload.wikimedia.org/wikipedia/commons/0/05/Twitter-logo-black.png','twitter','twitter_name','twitter_feed_url')
+			'http://www.twitter.com' => new AccountPresentation('icons/iconfinder_02_111031.png','twitter','twitter_name','twitter_feed_url')
 		);
 	}
 
