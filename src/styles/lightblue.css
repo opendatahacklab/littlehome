@@ -99,3 +99,20 @@ a:link, a:visited{
  a:hover, a:active{
 	text-decoration : underline;
 }
+
+p.orgName{
+	font-size: 1.5em;
+	margin : 0 auto 0 auto;
+	padding:0 auto 1em auto;
+	font-weight : bold;
+}
+
+p.orgName a{
+	color: inherit;
+}
+
+p.date{
+	font-family: Courier, Monotype;
+	font-size:1.5em;
+	font-weight: bold;
+}

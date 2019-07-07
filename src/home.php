@@ -8,8 +8,8 @@ require_once('classes/ConfigHelper.php');
 $c=new ConfigHelper(ORGANIZATION_FILE, STYLES_FILE);
 $j=$c->organization->json;
 
-$title=htmlentities($j->{'foaf:name'});
-$css=$c->styles->json->selected;
+$title=$c->getName();
+$css=$c->getCSS();
 
 if (isset($j->{'foaf:logo'}))
 	$logo=$j->{'foaf:logo'}->{'@id'};

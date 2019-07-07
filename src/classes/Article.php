@@ -2,7 +2,7 @@
 /**
   * utilities for blog posts.
   * Article sources must be in Markdown (https://daringfireball.net/projects/markdown/syntax). In addition, they can have MultiMarkdown metadata (http://fletcher.github.io/MultiMarkdown-5/metadata.html) with the keys
-  * title and date. Time must be specified as YYYY-mm-DD. 
+  * title and date. Time must be specified as YYYYmmDD. 
   */
 class Article{
 	public $title;
@@ -55,23 +55,32 @@ class Article{
 			$headerSize+=strlen($row)+1;
 			if ($row==='---')
 				return substr($md, $headerSize, strlen($md));
+			else{
+				$rowParts=explode(':',$row);
+				if (count($rowParts)==2){
+					$key=trim($rowParts[0]);
+					if ($key==='title')
+						$this->title=trim($rowParts[1]);
+					if ($key==='date'){
+						$dateStr=trim($rowParts[1]);
+						echo "<!-- date found $dateStr -->";
+						$this->date=DateTimeImmutable::createFromFormat ('Ymd', trim($rowParts[1]));
+					}
+				}
+			}
 		}
-		return '<!-- EMPTY -->';
+		return 'Invalid Content';
 	}
 
 	/**
-	  * parse the metadata in the remaining string until a --- sequence is encountered. Return the remaining string.
+	  * Get the date formatted in human readable format.
+	  *	
+	  * @return the date as string, null if no date is specified.
 	  */
-	function parseMetadata($remaining){
-		echo "<!-- parseMetadata($remaining) -->\n";
-		$x=strstr($remaining,"\n", true);
-		if (count($x)<2) return $remaining;
-		$row=$x[0];
-		$remaining=$x[1];
-		echo "<!-- row $row remaining $remaining-->\n";
-		if (trim($row)==='---')
-			return $remaining;
-		return parseMetadata($remaining);
+	function getDateFormatted(){
+		if (!isset($this->date))
+			return null;
+		return $this->date->format('d-m-Y');
 	}
 }
 ?>
