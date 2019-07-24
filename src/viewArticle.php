@@ -26,16 +26,7 @@ $a=Article::readFromGETParameterURL();
 </head>
 <body>
 <?php
-if (!$a) echo "<p>No such article</p>\n";
-else {
-	echo "<p class=\"orgName\"><a href=\"../index.php\">$orgName</a></p>\n";
-	echo "<h1>$a->title</h1>\n";
-	$dateStr=$a->getDateFormatted();
-	if ($dateStr!==null){
-		echo "<p class=\"date\">$dateStr</p>\n";
-	}
-	echo $a->content;
-}
+include('viewArticle.php.inc');
 ?>
 </body>
 </html>
