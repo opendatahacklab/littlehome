@@ -40,14 +40,27 @@ class Article{
 		$md=file_get_contents($url);
 		if ($md==FALSE) 
 			return FALSE;
-		$mdContents=$this->extractMetadata($md);
-		$parser = new \Michelf\Markdown();
-
-		$html = $parser->transform($mdContents);
-		if (!$html)
-			return FALSE;
-		$this->content=$html;
+		$this->content=$this->extractMetadata($md);
 		return TRUE;
+	}
+
+	/**
+	  * Helper function to get the content as an html file.
+	  */
+	public function getContentAsHTML(){
+		if (!isset($this->content))
+			return '';
+		$parser = new \Michelf\Markdown();
+		return $parser->transform($this->content);
+	}
+	/**
+	  * Write the article as a MultiMarkdown file
+	  *
+	  * @return FALSE if failure, TRUE otherwise 
+	  */
+	public function writeToFile($path){
+		$s="---\ntitle:".$this->title."\ndate:".$this->date->format('Ymd')."\n---\n".$this->content;		
+		return file_put_contents($path,$s)!=FALSE;
 	}
 
 	/**

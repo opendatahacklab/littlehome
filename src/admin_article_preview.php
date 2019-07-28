@@ -6,6 +6,8 @@ require_once('classes/SocialAccounts.php');
 require_once('classes/Organization.php');
 require_once('classes/Styles.php');
 require_once('classes/ConfigHelper.php');
+require_once('classes/Michelf/MarkdownInterface.php');
+require_once('classes/Michelf/Markdown.php');
 require_once('classes/Article.php');
 
 $c=new ConfigHelper('../'.ORGANIZATION_FILE, '../'.STYLES_FILE);

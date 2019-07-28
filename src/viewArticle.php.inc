@@ -11,7 +11,7 @@ else {
 	if ($dateStr!==null){
 		echo "<p class=\"date\">$dateStr</p>\n";
 	}
-	$c=$a->content;
-	echo "<p class=\"content\">\n$a->content\n</p>\n";
+	$c=$a->getContentAsHTML();
+	echo "<p class=\"content\">\n$c\n</p>\n";
 }
 ?>
