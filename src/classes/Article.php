@@ -5,10 +5,17 @@
   * title and date. Time must be specified as YYYYmmDD. 
   */
 class Article{
+	public $fieldsPrefix;
 	public $title;
-	public $author;
 	public $date;
 	public $content;
+
+	function __construct($fieldsPrefix=""){
+		$this->fieldsPrefix=$fieldsPrefix;
+		$this->title='';
+		$this->date=new DateTimeImmutable();
+		$this->content='';
+	}
 
 	/**
 	  * Get an article instance by reading it from the Markdown file retrievable
@@ -20,7 +27,7 @@ class Article{
 		if (!isset($_GET['url']))
 			return FALSE;
 		$a=new Article();
-		if (!$a->read($_GET['url']))
+		if (!$a->readFromFile($_GET['url']))
 			return FALSE;
 		return $a;		
 	}
@@ -29,12 +36,13 @@ class Article{
 	  * Parse an article whose source will be retrieved at the specified URL.
 	  * @return TRUE if success, FALSE otherwise
 	  */ 
-	function read($url){
+	function readFromFIle($url){
 		$md=file_get_contents($url);
 		if ($md==FALSE) 
 			return FALSE;
 		$mdContents=$this->extractMetadata($md);
 		$parser = new \Michelf\Markdown();
+
 		$html = $parser->transform($mdContents);
 		if (!$html)
 			return FALSE;
@@ -63,7 +71,6 @@ class Article{
 						$this->title=trim($rowParts[1]);
 					if ($key==='date'){
 						$dateStr=trim($rowParts[1]);
-						echo "<!-- date found $dateStr -->";
 						$this->date=DateTimeImmutable::createFromFormat ('Ymd', trim($rowParts[1]));
 					}
 				}
@@ -82,6 +89,44 @@ class Article{
 			return null;
 		return $this->date->format('d-m-Y');
 	}
+
+	/**
+	  * Read the article from a fields array, may be entered by an user by filling a form
+	  */
+	private function readFromFields($vars){
+		$this->title=$vars[$this->fieldsPrefix.'title'];
+		$this->date=DateTimeImmutable::createFromFormat ('Y-m-d', $vars[$this->fieldsPrefix.'date']);
+		$this->content=$vars[$this->fieldsPrefix.'content'];
+	}
+
+	/**
+	  * Read the article from a user entered form
+	  */
+	public function readFromForm(){
+		$this->readFromFields($_POST);
+	}
+
+	/**
+	  * Set properties by retrieving them from session variables
+	  *
+	  */
+	public function readFromSession(){
+		if (!isset($_SESSION[$this->fieldsPrefix.'title']))
+			return FALSE;
+		$this->readFromFields($_SESSION);
+		return TRUE;
+	}
+
+	/**
+	  * Store property value as session variables
+	  */
+	public function storeInSession(){
+		$_SESSION[$this->fieldsPrefix.'title']=$this->title;
+		$_SESSION[$this->fieldsPrefix.'date']=$this->date->format('Y-m-d');
+		$_SESSION[$this->fieldsPrefix.'content']=$this->content;
+	}
+
+
 }
 ?>
 	
