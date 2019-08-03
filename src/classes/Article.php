@@ -36,7 +36,7 @@ class Article{
 	  * Parse an article whose source will be retrieved at the specified URL.
 	  * @return TRUE if success, FALSE otherwise
 	  */ 
-	function readFromFIle($url){
+	function readFromFile($url){
 		$md=file_get_contents($url);
 		if ($md==FALSE) 
 			return FALSE;
