@@ -32,6 +32,23 @@ class Articles extends JsonHelper{
 			$items->{'rdf:li'}[0]=$item;
 			return;
 		}
+
+		$i=0; $n=count($items->{'rdf:li'});
+		for($i=0; $i<$n; $i++){
+			$x=$items->{'rdf:li'}[$i];
+			$xdate=DateTime::createFromFormat(DateTimeInterface::ISO8601, $x->{'dc:date'});
+			if ($xdate->getTimestamp()<$a->date->getTimestamp())
+				break;
+		}
+		if ($i===$n){
+			$items->{'rdf:li'}[$i]=$item;
+			return;
+		}
+	
+		$pos=$i;
+		for($j=$n;$j>$i; $j--)
+			$items->{'rdf:li'}[$j]=$items->{'rdf:li'}[$j-1]; 
+		$items->{'rdf:li'}[$i]=$item;
 	}
 }
 ?>
