@@ -54,7 +54,7 @@ class JsonHelper{
 	  */
 	public function writeToFile($path){
 		$s=json_encode($this->json);
-		file_put_contents($path,$s);
+		return file_put_contents($path,$s)!=FALSE;
 	}
 }
 ?>
