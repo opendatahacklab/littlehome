@@ -31,11 +31,10 @@ $utils=new LDUtils();
 </head>
 <body>
 	<h1>Amministrazione Sito - Gestione Articoli</h1>
-	<div class="w3-card-4">
 
 <?php
 	if (isset($l->json->{'rss:items'}->{'rdf:li'})){
-		echo "\t<table class=\"w3-table w3-striped w3-bordered \">\n";	
+		echo "<div class=\"w3-card-4\">\n\t<table class=\"w3-table w3-striped w3-bordered \">\n";	
 		foreach($l->json->{'rss:items'}->{'rdf:li'} as $a){
 			$title=$a->{'rss:title'};
 			$url=$a->{'@id'};
@@ -48,7 +47,7 @@ $utils=new LDUtils();
 			$removeArticleURL='admin_article_remove.php?url='.urlencode($url);			
 			echo "\t\t<tr>\n\t\t\t<td class=\"date\">$date</td>\n\t\t\t<td><a target=\"_blank\" href=\"$link\">$title</a></td>\n\t\t\t<td class=\"w3-right-align\"><a href=\"$removeArticleURL\" class=\"w3-btn w3-teal\">&#x2501; Elimina</a></td>\n\t\t</tr>\n";
 		} 
-		echo "\t</table>\n";	
+		echo "\t</table>\n</div>\n";	
 	} else
 		echo "<p>Non &egrave; presente alcun articolo.</p>\n";
 ?>		

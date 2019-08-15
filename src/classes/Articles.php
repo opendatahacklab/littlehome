@@ -75,8 +75,15 @@ class Articles extends JsonHelper{
 		for($i=0, $n=count($items->{'rdf:li'}); $i<$n && strcmp($uri,$items->{'rdf:li'}[$i]->{'@id'}); $i++);
 
 		if ($i===$n) return FALSE;
+
+		if ($n===1){
+			unset($items->{'rdf:li'});
+			return TRUE;
+		}
+
 		for($m=$n-1;$i<$m;$items->{'rdf:li'}[$i]=$items->{'rdf:li'}[++$i]);
 		unset($items->{'rdf:li'}[$m]);
+
 		return TRUE;
 	}
 }
