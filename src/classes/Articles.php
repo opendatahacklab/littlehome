@@ -9,6 +9,16 @@ class Articles extends JsonHelper{
 	}
 
 	/**
+	  * Create an empty articles list and write to the file at the specified path.
+	  *
+	  * @return TRUE if success, FALSE otherwise.
+	  */	
+	public static function writeEmpty($path){
+		$l=new Articles();
+		$l->createEmpty();
+		return $l->writeToFile($path);
+	}
+	/**
 	  * Setup the json object with no articles.
 	  */
 	public function createEmpty(){
@@ -33,7 +43,7 @@ class Articles extends JsonHelper{
 			return;
 		}
 
-		$i=0; $n=count($items->{'rdf:li'});
+		$n=count($items->{'rdf:li'});
 		for($i=0; $i<$n; $i++){
 			$x=$items->{'rdf:li'}[$i];
 			$xdate=DateTime::createFromFormat(DateTimeInterface::ISO8601, $x->{'dc:date'});
@@ -49,6 +59,25 @@ class Articles extends JsonHelper{
 		for($j=$n;$j>$i; $j--)
 			$items->{'rdf:li'}[$j]=$items->{'rdf:li'}[$j-1]; 
 		$items->{'rdf:li'}[$i]=$item;
+	}
+
+	/**
+	  * Remove the article with the specified uri.
+	  *
+	  * @return TRUE if an article with this URI exists, FALSE otherwise.
+	  */
+	public function remove($uri){
+		$items=$this->json->{'rss:items'};
+		if (!isset($items->{'rdf:li'}))
+			return FALSE;
+
+		$i=0; $n=count($items->{'rdf:li'});
+		for($i=0, $n=count($items->{'rdf:li'}); $i<$n && strcmp($uri,$items->{'rdf:li'}[$i]->{'@id'}); $i++);
+
+		if ($i===$n) return FALSE;
+		for($m=$n-1;$i<$m;$items->{'rdf:li'}[$i]=$items->{'rdf:li'}[++$i]);
+		unset($items->{'rdf:li'}[$m]);
+		return TRUE;
 	}
 }
 ?>

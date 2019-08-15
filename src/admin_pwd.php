@@ -6,6 +6,7 @@ require_once('classes/SocialAccounts.php');
 require_once('classes/Organization.php');
 require_once('classes/Styles.php');
 require_once('classes/Logo.php');
+require_once('classes/Articles.php');
 
 session_start();
 $p=new Password();
@@ -36,6 +37,7 @@ if (isset($_POST['password'])){
 				$p->writeToFile($password,'../'.PASSWORD_FILE);		
 				$o->writeToFile('../'.ORGANIZATION_FILE);
 				$s->writeToFile('../'.STYLES_FILE);
+				Articles::writeEmpty('../'.ARTICLES_FILE);
 				session_destroy();
 				include('admin_save.php.inc');
 			} else {

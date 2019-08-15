@@ -28,3 +28,12 @@ fieldset{
 input[type="file"]{
 	padding:2em 2em 2em 2em;
 }
+
+.date{
+	font-family:Consolas,"courier new";
+	width : 11em;
+}
+
+td{
+	vertical-align: middle;
+}

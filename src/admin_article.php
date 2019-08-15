@@ -29,6 +29,7 @@ $date=$a->date->format('Y-m-d');
 			</fieldset>
 		</div>
 		<nav class="nextprev">
+			<a href="admin_articles_list.php" class="w3-btn w3-teal ">&#10094; Indietro</a>
 			<a href="admin_clear.php" class="w3-btn w3-teal ">Esci &#10006;</a>
 			<input type="submit" name="fromArticle"  value="Avanti &#10095;" class="w3-btn w3-teal " />
 		</nav>

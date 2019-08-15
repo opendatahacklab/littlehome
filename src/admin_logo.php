@@ -65,7 +65,7 @@ if (isset($o->json->{'foaf:logo'})){
 	</div>
 
 	<nav class="nextprev">
-		<a href="admin.php" class="w3-btn w3-teal ">&#10094; Indietro</a>
+		<a href="admin_info.php" class="w3-btn w3-teal ">&#10094; Indietro</a>
 		<a href="admin_clear.php" class="w3-btn w3-teal">Esci &#10006;</a>
 		<a href="admin_css.php" class="w3-btn w3-teal ">Avanti &#10095;</a>
 	</nav>

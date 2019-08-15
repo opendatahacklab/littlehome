@@ -9,8 +9,7 @@ require_once('classes/Articles.php');
 
 
 $p=new Password();
-if (!$p->readFromFile('../'.PASSWORD_FILE))
-	echo "<!-- HAIAIAIAIAI --\n";
+$p->readFromFile('../'.PASSWORD_FILE);
 
 function writeArticle(){
 	$filename=(new DateTimeImmutable())->format('YmdHisu').'.md';

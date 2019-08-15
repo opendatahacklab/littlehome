@@ -110,7 +110,8 @@ class Password{
 <body>
 	<h1><?=$title?> - Fine</h1>
 	<p><?=$message?></p>
-	<p><a href="../index.php" class="w3-btn w3-teal ">Vai al Sito</a></p>
+	<a href="admin.php" class="w3-btn w3-teal ">Torna alla pagina di amministrazione</a>
+	<a href="../index.php" class="w3-btn w3-teal ">Vai al Sito</a>
 </body>
 </html>
 <?php
