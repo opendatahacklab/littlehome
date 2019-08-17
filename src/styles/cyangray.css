@@ -29,7 +29,7 @@ header{
 	min-height : 6em;
 }
 
-h1,h2{
+h1,h2, p.orgname{
 	background-color: rgb(51, 55, 62);
 	font-family: 'MontserratRegular';
 	font-weight: normal;
@@ -40,7 +40,7 @@ h1,h2{
 	padding-bottom: 0.4em;
 }
 
-h1{
+h1,p.orgname{
 	font-size:1.4em;
 }
 h2{
