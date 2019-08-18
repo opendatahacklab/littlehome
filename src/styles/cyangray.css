@@ -1,5 +1,6 @@
 @import url('https://fontlibrary.org/face/roboto');
 @import url('https://fontlibrary.org/face/montserrat');
+@import url('https://fontlibrary.org/face/connection');
 
 body{
 	color:white;
@@ -43,11 +44,17 @@ h1,h2, p.orgname{
 h1,p.orgname{
 	font-size:1.4em;
 }
+
 h2{
 	text-transform: uppercase;
 	font-size:1.1em;
 }
 
+*.title{
+	text-align : center;
+	font-size: 2em;
+	margin-bottom:1em;
+}
 img.logo{
 	float:left;
 	max-width: 8em;
@@ -104,4 +111,24 @@ a:link, a:visited{
 
  a:hover, a:active{
 	text-decoration : underline;
+}
+
+*.date{
+	font-family:Consolas,"courier new";
+	font-style : normal;
+} 
+
+ol{
+	list-style-type : none;
+	margin:0;
+	padding:0;
+}
+
+ol li{
+	margin:0.5em auto 0.5em 0;
+}
+
+nav{
+	margin: 0.2em 0.2em 0.2em auto;
+	text-align : right;
 }

@@ -13,7 +13,8 @@ require_once('classes/Article.php');
 $c=new ConfigHelper('../'.ORGANIZATION_FILE, '../'.STYLES_FILE);
 $css=$c->getCss('../');
 $orgName=$c->getName();
-
+$logo=$c->getLogo('../');
+$address=$c->getAddress('../');
 
 $a=new Article();
 if (isset($_POST['fromArticle'])){

@@ -40,9 +40,10 @@ $utils=new LDUtils();
 		echo "\t\t<p class=\"indirizzo\">$address</p>\n";
 ?>
 	</header>
+	<nav> <a href="../index.php">&lt;&lt; pagina principale</a></nav>
 	
 	<section>
-		<h1>Articoli</h1>
+		<h2 class="title">Articoli</h2>
 	<ol>
 <?php
 	foreach($l->json->{'rss:items'}->{'rdf:li'} as $a){

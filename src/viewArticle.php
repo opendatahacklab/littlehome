@@ -15,6 +15,8 @@ $c=new ConfigHelper('../'.ORGANIZATION_FILE, '../'.STYLES_FILE);
 //$orgName=$c->organization->json->{'foaf:name'};
 $orgName=$c->getName();
 $css=$c->getCss('../');
+$logo=$c->getLogo('../');
+$address=$c->getAddress('../');
 $a=Article::readFromGETParameterURL();
 ?>
 <!DOCTYPE html>
