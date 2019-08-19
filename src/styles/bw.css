@@ -55,6 +55,12 @@ h2{
 	font-size: 1.2em;
 }
 
+*.title{
+	text-align : center;
+	font-size: 2em;
+	margin-bottom:1em;
+}
+
 img.logo{
 	float:left;
 	max-height: 7em;
@@ -114,4 +120,25 @@ a:link, a:visited{
 
  a:hover, a:active{
 	text-decoration : underline;
+}
+
+*.date{
+	font-family:Consolas,"courier new";
+	font-style : normal;
+} 
+
+ol{
+	list-style-type : square;
+	list-style-position:inside;
+	margin:0;
+	padding:0;
+}
+
+ol li{
+	margin:0.5em auto 0.5em 0;
+}
+
+nav{
+	margin: 0.2em 0.2em 0.2em auto;
+	text-align : right;
 }
