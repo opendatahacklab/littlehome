@@ -5,6 +5,7 @@ require_once('classes/LDUtils.php');
 require_once('classes/SocialAccounts.php');
 require_once('classes/Organization.php');
 require_once('classes/Styles.php');
+require_once('classes/Articles.php');
 
 $o=new Organization();
 $o->readFromSession();
@@ -24,6 +25,9 @@ $css= $utils->isAbsoluteUrl($s->json->selected) ? $s->json->selected : '../'.$s-
 
 if (isset($j->{'foaf:logo'}))
 	$logo=$utils->isAbsoluteUrl($j->{'foaf:logo'}->{'@id'}) ? $j->{'foaf:logo'}->{'@id'} : '../'.$j->{'foaf:logo'}->{'@id'};
+
+$l=new Articles();
+$l->readFromFile('../'.ARTICLES_FILE) or die('unable to read ../'.ARTICLES_FILE); 
 
 $srcpath='.';
 

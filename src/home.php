@@ -4,6 +4,7 @@ require_once('classes/SocialAccounts.php');
 require_once('classes/Organization.php');
 require_once('classes/Styles.php');
 require_once('classes/ConfigHelper.php');
+require_once('classes/Articles.php');
 
 $c=new ConfigHelper(ORGANIZATION_FILE, STYLES_FILE);
 $j=$c->organization->json;
@@ -13,6 +14,9 @@ $css=$c->getCSS();
 
 if (isset($j->{'foaf:logo'}))
 	$logo=$j->{'foaf:logo'}->{'@id'};
+
+$l=new Articles();
+$l->readFromFile(ARTICLES_FILE) or die('unable to read '.ARTICLES_FILE); 
 
 $srcpath='src';
 ?>

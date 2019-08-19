@@ -5,6 +5,8 @@ require_once('classes/Address.php');
 //name is mandatory
 $name=htmlentities($j->{'foaf:name'});
 $css=isset($_GET['bw']) ? 'styles/bw.css' :  'styles/cyangray.css';
+$utils=new LDUtils();
+
 ?>
 	<header>
 <?php
@@ -67,7 +69,34 @@ if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'}) || isset($j->{'foaf:
 	</section>
 <?php
 	}
+	if (isset($l->json->{'rss:items'}->{'rdf:li'})){
+?>
+	<section>
+		<h2>Articoli</h2>
+		<ol>
+<?php
+	$articles=$l->json->{'rss:items'}->{'rdf:li'};
+	$n=min(count($articles),2);
+	for($i=0; $i<$n;$i++){
+		$a=$articles[$i];
+		$title=$a->{'rss:title'};
+		$url=$a->{'@id'};
+		$date=DateTime::createFromFormat(DateTimeInterface::ISO8601, $a->{'dc:date'})->format('d/m/Y');
+		if (!$utils->isAbsoluteURL($url))
+			$url=$srcpath.'/viewArticle.php?url='.urlencode('../'.$url);
+		echo "<li><em class=\"date\">$date</em> <a href=\"$url\">$title</a></li>\n";
+	}
+?>
+		</ol>
+<?php 
+	if (count($articles)>2)
+		echo "\t\t<p><a href=\"$srcpath/listArticles.php\">vedi altri articoli</a></p>\n";
+?>
+	</section>
+<?php
+	}
 ?>	
+
 	<section>
 		<h2>Credits</h2>
 		<ul>
