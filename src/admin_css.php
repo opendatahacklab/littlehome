@@ -27,7 +27,7 @@ if (isset($j->{'foaf:logo'}))
 	$logo=$utils->isAbsoluteUrl($j->{'foaf:logo'}->{'@id'}) ? $j->{'foaf:logo'}->{'@id'} : '../'.$j->{'foaf:logo'}->{'@id'};
 
 $l=new Articles();
-$l->readFromFile('../'.ARTICLES_FILE) or die('unable to read ../'.ARTICLES_FILE); 
+$l->readFromFile('../'.ARTICLES_FILE); 
 
 $srcpath='.';
 

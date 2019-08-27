@@ -61,6 +61,8 @@ if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'}) || isset($j->{'foaf:
 			$url=$account->{'@id'};
 			$p=$socialAccounts->presentations[$service];
 			$iconUrl=$p->serviceIcon;
+			if (!$utils->isAbsoluteURL($iconUrl))
+				$iconUrl=$srcpath.'/'.$iconUrl;
 			$desc=$p->accountTypeDescription;
 			echo "\t\t\t<li><img src=\"$iconUrl\"/> $desc <a href=\"$url\">$name</a></li>\n";
 		}
