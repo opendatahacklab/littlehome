@@ -34,11 +34,11 @@ img.logo{
 }
 
 
-h1, h2{
+h1, h2,p.orgname{
 	font-family : "lucida bright", Georgia, serif;
 }
 
-h1{
+h1,p.orgname{
 	font-size: 2em;
 	margin : 0 auto 0 auto;
 	padding:0;

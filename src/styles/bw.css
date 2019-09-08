@@ -37,14 +37,14 @@ header + p {
 	clear: both;
 }
 
-h1, h2{
+h1, h2,p.orgname{
 	color : black;
 	font-family : "lucida bright", Georgia, serif;
 	font-variant:small-caps;
 	font-weight : bold;
 }
 
-h1{
+h1,p.orgname{
 	font-size: 2em;
 	text-align : center;
 	margin : 0 auto 1em auto;
