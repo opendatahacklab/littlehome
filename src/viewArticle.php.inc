@@ -31,6 +31,6 @@ $title=htmlentities($a->title);
 		echo "<p class=\"date\">$dateStr</p>\n";
 	}
 ?>
-		<h2 class="title"><?=$title?></h2>
+		<h1 class="title"><?=$title?></h1>
 		<?=$c?>
 	</section>
