@@ -34,7 +34,7 @@ class Articles extends JsonHelper{
 		$item=new stdClass();
 		$item->{'rss:title'}=$a->title;
 		$item->{'@id'}=$uri;
-		$item->{'dc:date'}=$a->date->format(DateTimeInterface::ISO8601);
+		$item->{'dc:date'}=$a->date->format(DateTimeInterface::W3C);
 
 		$items=$this->json->{'rss:items'};
 		if (!isset($items->{'rdf:li'})){
@@ -46,7 +46,7 @@ class Articles extends JsonHelper{
 		$n=count($items->{'rdf:li'});
 		for($i=0; $i<$n; $i++){
 			$x=$items->{'rdf:li'}[$i];
-			$xdate=DateTime::createFromFormat(DateTimeInterface::ISO8601, $x->{'dc:date'});
+			$xdate=DateTime::createFromFormat(DateTimeInterface::W3C, $x->{'dc:date'});
 			if ($xdate->getTimestamp()<$a->date->getTimestamp())
 				break;
 		}
