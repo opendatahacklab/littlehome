@@ -35,4 +35,8 @@ define('ARTICLES_FILE','articles.json');
   */
 define('ARTICLES_DIR','blog');
 
+/**
+  * Base url, mainly for generating rdf resource URLs
+ */
+define('BASE_URL','http://example.littlehome.it/');
 ?>

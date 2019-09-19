@@ -6,7 +6,7 @@
 class ConfigHelper{
 	public $organization;
 	public $styles;
-	private $utils;
+	public $utils;
 
 	public function __construct($organizationFilePath, $stylesFilePath){
 		$this->organization=new Organization();
