@@ -9,6 +9,10 @@
 			"label": "light blue"
 		},
 		{
+			"url": "src/styles/bwlight.css",
+			"label": "black and white light"
+		},
+		{
 			"url": "src/styles/cyangray.css",
 			"label": "deep gray"
 		}

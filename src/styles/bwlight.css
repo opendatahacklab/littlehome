@@ -1,8 +1,8 @@
 body{
 	background-color : white;
-	color : #444444;
+	color : black;
 	font-family: "Courier New", courier, monotype;
-	padding-top : 2em;
+	padding-top : 0;
 	padding-bottom : 2em;
 }
 
@@ -20,17 +20,17 @@ abbr{
 
 @media not screen and (max-device-width: 600px) {
   body {
-	padding-left : 10%;
-	padding-right : 10%;
+	padding-left : 20%;
+	padding-right : 20%;
   }
 }
 
 header{
 	display: block;
 	margin : 0 0 1em 0;
-	border-bottom : solid 0.2em;
+	border-bottom : solid 0.3em;
 	padding : 0;
-	min-height : 7em;
+	min-height : 7.5em;
 }
 
 header + p {
@@ -38,27 +38,41 @@ header + p {
 }
 
 h1, h2,p.orgname{
-	color : black;
 	font-family : "lucida bright", Georgia, serif;
 	font-variant:small-caps;
-	font-weight : bold;
 }
+
 
 h1,p.orgname{
-	font-size: 2em;
+	color : black;
+	font-size: 3em;
 	text-align : center;
-	margin : 0 auto 1em auto;
-	padding-top:1em;
+	margin : 0 auto 0.5em auto;
+	padding-top:0.5em;
+	font-weight:normal;
 }
 
+h2, *.indirizzo{
+	color : #666666;
+}
+
+p.indirizzo img{
+	max-height: 1.2em;
+	vertical-align:middle;
+}
 h2{
 	font-size: 1.2em;
+	font-weight : bold;
+	/*color:rgb(51, 51, 51);*/
 }
 
 *.title{
+	font-family: Lato, Helvetica, sans-serif;
 	text-align : center;
-	font-size: 2em;
+	font-size: 3em;
 	margin-bottom:1em;
+	font-weight:normal; 
+	padding-top:0;
 }
 
 img.logo{
@@ -70,8 +84,7 @@ img.logo{
 
 section{
 	background:none;
-	/* background-color : #f0f0f0; */
-	margin: 2em 0 1em 0;
+	margin: 2em 0 3em 0;
 	padding:0;
 }
 
@@ -81,6 +94,7 @@ ul.contacts{
 	list-style-position:inside;
 	margin:0;
 	padding:0;
+
 }
 ul.contacts li{
 	line-height: 3em;
@@ -95,20 +109,14 @@ ul.contacts img{
 }
 
 p.indirizzo{
-	text-align:right;
+	text-align:center;
 	font-style : italic;
 	margin:0 ;
 	padding:0.2em;
 }
 
-p.indirizzo img{
-	max-height: 1.2em;
-	vertical-align:middle;
-}
-
-
 a, a:link, a:visited, a:hover, a:active{
-	color : #666666;
+	color: rgb(18, 52, 86);
 	font-weight: bold;
 }
 
@@ -123,10 +131,15 @@ a:link, a:visited{
 *.date{
 	font-family:Consolas,"courier new";
 	font-style : normal;
+/*	font-size:1.2em;
+	background-color : #aaaaaa;
+	margin:0;
+	padding: 0.5em;
+	display:inline-block; */
 } 
 
 ol{
-	list-style-type : square;
+	list-style-type : none;
 	list-style-position:inside;
 	margin:0;
 	padding:0;

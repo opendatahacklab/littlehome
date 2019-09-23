@@ -69,6 +69,11 @@ p.indirizzo{
 	color:rgb(188, 188, 193);
 }
 
+p.indirizzo img{
+	max-height: 1.2em;
+	vertical-align:middle;
+}
+
 section{
 	background-color: rgb(51, 55, 62);
 	margin-top:2em;

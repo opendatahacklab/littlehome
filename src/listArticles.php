@@ -43,7 +43,7 @@ $utils=new LDUtils();
 	<nav> <a href="../index.php">&lt;&lt; pagina principale</a></nav>
 	
 	<section>
-		<h2 class="title">Articoli</h2>
+		<h1 class="title">Articoli</h1>
 	<ol>
 <?php
 	foreach($l->json->{'rss:items'}->{'rdf:li'} as $a){

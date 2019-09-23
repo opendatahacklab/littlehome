@@ -51,6 +51,11 @@ p.indirizzo{
 	margin: 1em auto 0 auto;
 }
 
+p.indirizzo img{
+	max-height: 1.2em;
+	vertical-align:middle;
+}
+
 h2{
 	font-size: 1.5em;
 	font-weight : bold;
