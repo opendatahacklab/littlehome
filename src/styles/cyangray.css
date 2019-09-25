@@ -12,7 +12,7 @@ body{
 
 @media only screen and (max-device-width: 600px) {
   body {
-	font-size: 32pt;
+	font-size: 16pt;
   }
 }
 

@@ -22,7 +22,7 @@ $utils=new LDUtils();
 	if (isset($j->{'org:hasPrimarySite'}) && isset($j->{'org:hasPrimarySite'}->{'locn:address'})){
 		echo "\t\t\t".Address::jsonToString($j->{'org:hasPrimarySite'}->{'locn:address'})."\n";
 	}
-	echo "\t\t\t<a href=\"$srcpath/rss1feed.php\" title=\"RSS 1.0 Feed\" type=\"application/rss+xml\"><img src=\"$srcpath/icons/rss-feed-icon.svg\" alt=\"RSS feed icon\"></img></a>\n";
+	echo "\t\t\t<a href=\"$srcpath/rss1feed.php\" title=\"RSS 1.0 Feed\" type=\"application/rss+xml\"><img src=\"$srcpath/icons/rss-feed-icon.png\" alt=\"RSS feed icon\"></img></a>\n";
 ?>
 		</p>
 	</header>
