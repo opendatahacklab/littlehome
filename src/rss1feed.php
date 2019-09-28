@@ -34,13 +34,14 @@ $f=new RSS1Feed(BASE_URL,$c->getName(),BASE_URL.'src/listArticles.php', $c->getN
 
 $l=new Articles();
 $l->readFromFile('../'.ARTICLES_FILE) or die('unable to read ../'.ARTICLES_FILE); 
-foreach($l->json->{'rss:items'}->{'rdf:li'} as $a){
-	$url=$a->{'@id'};
-	$date=DateTime::createFromFormat(DateTimeInterface::W3C, $a->{'dc:date'})->format('d/m/Y');
-	if (!$c->utils->isAbsoluteURL($url))
-		$url=BASE_URL.'src/viewArticle.php?url='.urlencode('../'.$url);
-	$f->add($url,$a->{'rss:title'},$a->{'dc:date'});
-}
+if (isset($l->json->{'rss:items'}->{'rdf:li'}))
+	foreach($l->json->{'rss:items'}->{'rdf:li'} as $a){
+		$url=$a->{'@id'};
+		$date=DateTime::createFromFormat(DateTimeInterface::W3C, $a->{'dc:date'})->format('d/m/Y');
+		if (!$c->utils->isAbsoluteURL($url))
+			$url=BASE_URL.'src/viewArticle.php?url='.urlencode('../'.$url);
+		$f->add($url,$a->{'rss:title'},$a->{'dc:date'});
+	}
 
 header("Content-type:application/rss+xml");
 $f->output();
