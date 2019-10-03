@@ -137,3 +137,7 @@ nav{
 	margin: 0.2em 0.2em 0.2em auto;
 	text-align : right;
 }
+
+#article img{
+	max-width:100%;
+}

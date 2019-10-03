@@ -25,7 +25,7 @@ $title=htmlentities($a->title);
 	</header>
 	<nav> <a href="listArticles.php">&lt;&lt; articoli</a></nav>
 	
-	<section>
+	<section id="article">
 <?php
 	if ($dateStr!==null){
 		echo "<p class=\"date\">$dateStr</p>\n";
