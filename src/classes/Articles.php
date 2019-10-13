@@ -81,7 +81,12 @@ class Articles extends JsonHelper{
 			return TRUE;
 		}
 
-		for($m=$n-1;$i<$m;$items->{'rdf:li'}[$i]=$items->{'rdf:li'}[++$i]);
+		for($m=$n-1;$i<$m;$i++){
+			$src=$items->{'rdf:li'}[$i+1]->{'@id'};
+			$tgt=$items->{'rdf:li'}[$i]->{'@id'};
+			$items->{'rdf:li'}[$i]=$items->{'rdf:li'}[$i+1];		
+		}
+	
 		unset($items->{'rdf:li'}[$m]);
 
 		return TRUE;

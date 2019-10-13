@@ -14,7 +14,13 @@ function removeArticle(){
 	$url=$_GET['url'];
 	$l=new Articles();
 	if ($l->readFromFile('../'.ARTICLES_FILE)==FALSE) return FALSE;
-	return $l->remove($_GET['url']) && $l->writeToFile('../'.ARTICLES_FILE);
+	if ($l->remove($_GET['url']) && $l->writeToFile('../'.ARTICLES_FILE)==FALSE)
+		return FALSE;
+	$u=new LDUtils();
+	if ($u->isAbsoluteUrl($url))
+		return TRUE;
+	return unlink('../'.$url);
+	
 }
 
 $p->secure("Eliminazione Articolo","admin_articles_list.php",'removeArticle');
