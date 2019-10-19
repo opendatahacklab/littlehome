@@ -33,15 +33,23 @@ class Article{
 	}
 
 	/**
+	  * Parse an article contained a string
+	  * @return TRUE if success, FALSE otherwise
+	  */ 
+	function read($md){
+		if ($md==FALSE) 
+			return FALSE;
+		$this->content=$this->extractMetadata($md);
+		return TRUE;
+	}
+
+	/**
 	  * Parse an article whose source will be retrieved at the specified URL.
 	  * @return TRUE if success, FALSE otherwise
 	  */ 
 	function readFromFile($url){
 		$md=file_get_contents($url);
-		if ($md==FALSE) 
-			return FALSE;
-		$this->content=$this->extractMetadata($md);
-		return TRUE;
+		return $this->read($md);	
 	}
 
 	/**
@@ -77,15 +85,14 @@ class Article{
 			if ($row==='---')
 				return substr($md, $headerSize, strlen($md));
 			else{
-				$rowParts=explode(':',$row);
-				if (count($rowParts)==2){
-					$key=trim($rowParts[0]);
+				$colonPos=strpos($row,":");
+				if ($colonPos!=FALSE){
+					$key=trim(substr($row, 0, $colonPos));
+					$value=trim(substr($row, $colonPos+1));
 					if ($key==='title')
-						$this->title=trim($rowParts[1]);
-					if ($key==='date'){
-						$dateStr=trim($rowParts[1]);
-						$this->date=DateTimeImmutable::createFromFormat ('Ymd', trim($rowParts[1]));
-					}
+						$this->title=$value;
+					if ($key==='date')
+						$this->date=DateTimeImmutable::createFromFormat ('Ymd', $value);
 				}
 			}
 		}
