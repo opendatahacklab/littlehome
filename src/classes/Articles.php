@@ -91,5 +91,25 @@ class Articles extends JsonHelper{
 
 		return TRUE;
 	}
+
+	/**
+	 * Get the index in the json->{'rss:items'}->{'rdf:li'} array of the more recent article with a date not in the future
+	 *
+	 * @return the index of the first past article, if any. FALSE otherwise.
+	 */
+	public function getFirstPastArticleIndex(){
+		if (!isset($this->json->{'rss:items'}->{'rdf:li'}))
+			return FALSE;
+		$articles=$this->json->{'rss:items'}->{'rdf:li'};
+		$currentTime=(new DateTimeImmutable())->getTimestamp();
+		$n=count($articles);
+		for($i=0; $i<$n; $i++){
+			$a=$articles[$i];
+			$atime=DateTime::createFromFormat(DateTimeInterface::ISO8601, $a->{'dc:date'})->getTimestamp();
+			if ($atime<=$currentTime)
+				return $i;
+		}
+		return FALSE;
+	}
 }
 ?>

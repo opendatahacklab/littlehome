@@ -46,14 +46,20 @@ $utils=new LDUtils();
 		<h1 class="title">Articoli</h1>
 	<ol>
 <?php
-	foreach($l->json->{'rss:items'}->{'rdf:li'} as $a){
-		$title=$a->{'rss:title'};
-		$url=$a->{'@id'};
-		$date=DateTime::createFromFormat(DateTimeInterface::W3C, $a->{'dc:date'})->format('d/m/Y');
-		if (!$utils->isAbsoluteURL($url))
-			$url='viewArticle.php?url='.urlencode('../'.$url);
-		echo "<li><em class=\"date\">$date</em> <a href=\"$url\">$title</a></li>\n";
-	}
+	$i=$l->getFirstPastArticleIndex();
+	$lis=$l->json->{'rss:items'}->{'rdf:li'};
+	$n=count($lis);
+	if ($n>$i)
+		for(;$i<$n; $i++){
+			$a=$lis[$i];
+			$date=DateTime::createFromFormat(DateTimeInterface::W3C, $a->{'dc:date'});	
+			$dateStr=$date->format('d/m/Y');
+			$title=$a->{'rss:title'};
+			$url=$a->{'@id'};
+			if (!$utils->isAbsoluteURL($url))
+				$url='viewArticle.php?url='.urlencode('../'.$url);
+			echo "<li><em class=\"date\">$dateStr</em> <a href=\"$url\">$title</a></li>\n";
+		}
 ?>		
 	</ol>
 	</section>

@@ -74,28 +74,32 @@ if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'}) || isset($j->{'foaf:
 	</section>
 <?php
 	}
-	if (isset($l->json->{'rss:items'}->{'rdf:li'})){
+	$i=$l->getFirstPastArticleIndex();
+	echo "Get first past article $i\n";
+	$articles=$l->json->{'rss:items'}->{'rdf:li'};
+	$numArticles=count($articles);
+	if ($numArticles>$i){
+		echo "Num articles $numArticles\n";
 ?>
 	<section>
 		<h2>Articoli</h2>
 		<ol>
 <?php
-	$articles=$l->json->{'rss:items'}->{'rdf:li'};
-	$n=min(count($articles),2);
-	for($i=0; $i<$n;$i++){
-		$a=$articles[$i];
-		$title=$a->{'rss:title'};
-		$url=$a->{'@id'};
-		$date=DateTime::createFromFormat(DateTimeInterface::ISO8601, $a->{'dc:date'})->format('d/m/Y');
-		if (!$utils->isAbsoluteURL($url))
-			$url=$srcpath.'/viewArticle.php?url='.urlencode('../'.$url);
-		echo "<li><em class=\"date\">$date</em> <a href=\"$url\">$title</a></li>\n";
-	}
+		$n=min($numArticles,$i+2);
+		for(;$i<$n;$i++){
+			$a=$articles[$i];
+			$title=$a->{'rss:title'};
+			$url=$a->{'@id'};
+			$date=DateTime::createFromFormat(DateTimeInterface::ISO8601, $a->{'dc:date'})->format('d/m/Y');
+			if (!$utils->isAbsoluteURL($url))
+				$url=$srcpath.'/viewArticle.php?url='.urlencode('../'.$url);
+			echo "<li><em class=\"date\">$date</em> <a href=\"$url\">$title</a></li>\n";
+		}
 ?>
 		</ol>
 <?php 
-	if (count($articles)>2)
-		echo "\t\t<p><a href=\"$srcpath/listArticles.php\">vedi altri articoli</a></p>\n";
+		if ($numArticles>$n)
+			echo "\t\t<p><a href=\"$srcpath/listArticles.php\">vedi altri articoli</a></p>\n";
 ?>
 	</section>
 <?php
