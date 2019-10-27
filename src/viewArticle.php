@@ -23,12 +23,13 @@ $title=$a->title;
 $uri=$utils->getCurrentPageURI();
 ?>
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" xmlns:og="http://ogp.me/ns#">
 <head>
 	<title><?=$orgName;?></title>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" type="text/css" href="<?=$css?>">
-	<meta property="og:title" content="<?=title?>" />
+	<meta property="og:url" content="<?=$uri?>" />	
+	<meta property="og:title" content="<?=$title?>" />
 	<meta property="og:type" content="article" />
 </head>
 <body>

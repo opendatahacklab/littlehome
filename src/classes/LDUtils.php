@@ -28,5 +28,17 @@ class LDUtils{
 		
 		return (bool) preg_match($pattern, $url);
 	}
+
+	/**
+	 * Get the URI of the page currently viewing
+	 * See https://www.php.net/manual/en/reserved.variables.server.php
+	 */
+	function getCurrentPageURI(){
+		$proto=empty($_SERVER['HTTPS']) ? 'http' : 'https';
+		$host=$_SERVER['HTTP_HOST'];
+		$path=$_SERVER['PHP_SELF'];
+		$query=empty($_SERVER['QUERY_STRING']) ? '' : '?'.$_SERVER['QUERY_STRING'];
+		return $proto.'://'.$host.$path.$query; 
+	}
 }
 ?>

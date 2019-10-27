@@ -75,11 +75,9 @@ if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'}) || isset($j->{'foaf:
 <?php
 	}
 	$i=$l->getFirstPastArticleIndex();
-	echo "Get first past article $i\n";
 	$articles=$l->json->{'rss:items'}->{'rdf:li'};
-	$numArticles=count($articles);
+	$numArticles=isset($articles) ? count($articles) : 0;
 	if ($numArticles>$i){
-		echo "Num articles $numArticles\n";
 ?>
 	<section>
 		<h2>Articoli</h2>
@@ -108,5 +106,5 @@ if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'}) || isset($j->{'foaf:
 
 	<section>
 		<h2>Credits</h2>
-		<p>Questo sito &egrave; realizzato sulla piattaforma <a href="http://littlehome.it">LITTLE HOME</a>. Vedi anche i <a href="http://littlehome.it">crediti</a> per le immagini.</p>
+		<p>Questo sito &egrave; realizzato sulla piattaforma <a href="https://www.opendatahacklab.org/littlehomeproject">LITTLE HOME</a>. Vedi anche i <a href="https://www.opendatahacklab.org/littlehomeproject/credits.html">crediti</a> per le immagini.</p>
 	</section>
