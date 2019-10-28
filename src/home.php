@@ -18,18 +18,24 @@ if (isset($j->{'foaf:logo'}))
 $l=new Articles();
 $l->readFromFile(ARTICLES_FILE) or die('unable to read '.ARTICLES_FILE); 
 
+$utils=new LDUtils();
 $srcpath='src';
+$uri=$utils->getCurrentPageURI();
 ?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
 	<title><?=$title?></title>
 	<meta charset="UTF-8" />
-	 <link rel="stylesheet" type="text/css" href="<?=$css?>">
+	<link rel="stylesheet" type="text/css" href="<?=$css?>" />
+	<meta property="og:url" content="<?=$uri?>" />	
+	<meta property="og:title" content="<?=$title?>" />
+	<meta property="og:type" content="website" />
 </head>
 <body>
 <?php
 require('home.php.inc');
+include('fbshare.php.inc');
 ?>
 </body>
 </html>

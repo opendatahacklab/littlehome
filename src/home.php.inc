@@ -7,7 +7,6 @@ require_once('classes/Michelf/Markdown.php');
 //name is mandatory
 $name=htmlentities($j->{'foaf:name'});
 $css=isset($_GET['bw']) ? 'styles/bw.css' :  'styles/cyangray.css';
-$utils=new LDUtils();
 
 ?>
 	<header>

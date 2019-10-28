@@ -10,6 +10,7 @@ require_once('classes/Articles.php');
 $o=new Organization();
 $o->readFromSession();
 $j=$o->json;
+$utils=new LDUtils();
 
 $s=new Styles();
 if (!($s->readFromSession())){
