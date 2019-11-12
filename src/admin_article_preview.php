@@ -22,6 +22,7 @@ if (isset($_POST['fromArticle'])){
 	$a->storeInSession();
 } else
 	$a->readFromSession();
+$disablelinktxt='onclick="return false"';
 ?>
 <!DOCTYPE html>
 <html lang="it">

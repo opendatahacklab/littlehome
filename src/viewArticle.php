@@ -21,6 +21,7 @@ $address=$c->getAddress('../');
 $a=Article::readFromGETParameterURL();
 $title=$a->title;
 $uri=$utils->getCurrentPageURI();
+$disablelinktxt='';
 ?>
 <!DOCTYPE html>
 <html lang="it" xmlns:og="http://ogp.me/ns#">

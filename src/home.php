@@ -21,6 +21,7 @@ $l->readFromFile(ARTICLES_FILE) or die('unable to read '.ARTICLES_FILE);
 $utils=new LDUtils();
 $srcpath='src';
 $uri=$utils->getCurrentPageURI();
+$disablelinktxt='';
 ?>
 <!DOCTYPE html>
 <html lang="it">

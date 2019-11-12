@@ -31,6 +31,7 @@ $l=new Articles();
 $l->readFromFile('../'.ARTICLES_FILE); 
 
 $srcpath='.';
+$disablelinktxt='onclick="return false"';
 
 ?>
 <!DOCTYPE html>

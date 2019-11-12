@@ -15,7 +15,7 @@ $title=htmlentities($a->title);
 <?php
 	if ($logo){
 ?>
-		<a href="../index.php" title="pagina principale"><img class="logo" src="<?=$logo?>" /></a>
+		<a <?=$disablelinktxt?> href="../index.php" title="pagina principale"><img class="logo" src="<?=$logo?>" /></a>
 <?php } ?>
 		<p class="orgname"><?=$orgName?></p>
 <?php
@@ -23,7 +23,7 @@ $title=htmlentities($a->title);
 		echo "\t\t<p class=\"indirizzo\">$address</p>\n";
 ?>
 	</header>
-	<nav> <a href="listArticles.php">&lt;&lt; articoli</a></nav>
+	<nav> <a <?=$disablelinktxt?> href="listArticles.php">&lt;&lt; articoli</a></nav>
 	
 	<section id="article">
 <?php

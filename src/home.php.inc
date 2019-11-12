@@ -21,7 +21,7 @@ $css=isset($_GET['bw']) ? 'styles/bw.css' :  'styles/cyangray.css';
 	if (isset($j->{'org:hasPrimarySite'}) && isset($j->{'org:hasPrimarySite'}->{'locn:address'})){
 		echo "\t\t\t".Address::jsonToString($j->{'org:hasPrimarySite'}->{'locn:address'})."\n";
 	}
-	echo "\t\t\t<a href=\"$srcpath/rss1feed.php\" title=\"RSS 1.0 Feed\" type=\"application/rss+xml\"><img src=\"$srcpath/icons/rss-feed-icon.png\" alt=\"RSS feed icon\"></img></a>\n";
+	echo "\t\t\t<a $disablelinktxt href=\"$srcpath/rss1feed.php\" title=\"RSS 1.0 Feed\" type=\"application/rss+xml\"><img src=\"$srcpath/icons/rss-feed-icon.png\" alt=\"RSS feed icon\"></img></a>\n";
 ?>
 		</p>
 	</header>
@@ -66,7 +66,7 @@ if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'}) || isset($j->{'foaf:
 			if (!$utils->isAbsoluteURL($iconUrl))
 				$iconUrl=$srcpath.'/'.$iconUrl;
 			$desc=$p->accountTypeDescription;
-			echo "\t\t\t<li><img src=\"$iconUrl\"/> $desc <a href=\"$url\">$name</a></li>\n";
+			echo "\t\t\t<li><img src=\"$iconUrl\"/> $desc <a $disablelinktxt href=\"$url\">$name</a></li>\n";
 		}
 ?>
 		</ul>
@@ -90,13 +90,13 @@ if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'}) || isset($j->{'foaf:
 			$date=DateTime::createFromFormat(DateTimeInterface::ISO8601, $a->{'dc:date'})->format('d/m/Y');
 			if (!$utils->isAbsoluteURL($url))
 				$url=$srcpath.'/viewArticle.php?url='.urlencode('../'.$url);
-			echo "<li><em class=\"date\">$date</em> <a href=\"$url\">$title</a></li>\n";
+			echo "<li><em class=\"date\">$date</em> <a $disablelinktxt href=\"$url\">$title</a></li>\n";
 		}
 ?>
 		</ol>
 <?php 
 		if ($numArticles>$n)
-			echo "\t\t<p><a href=\"$srcpath/listArticles.php\">vedi altri articoli</a></p>\n";
+			echo "\t\t<p><a $disablelinktxt href=\"$srcpath/listArticles.php\">vedi altri articoli</a></p>\n";
 ?>
 	</section>
 <?php
@@ -105,5 +105,5 @@ if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'}) || isset($j->{'foaf:
 
 	<section>
 		<h2>Credits</h2>
-		<p>Questo sito &egrave; realizzato sulla piattaforma <a href="https://www.opendatahacklab.org/littlehomeproject">LITTLE HOME</a>. Vedi anche i <a href="https://www.opendatahacklab.org/littlehomeproject/credits.html">crediti</a> per le immagini.</p>
+		<p>Questo sito &egrave; realizzato sulla piattaforma <a $disablelinktxt href="https://www.opendatahacklab.org/littlehomeproject">LITTLE HOME</a>. Vedi anche i <a $disablelinktxt href="https://www.opendatahacklab.org/littlehomeproject/credits.html">crediti</a> per le immagini.</p>
 	</section>
