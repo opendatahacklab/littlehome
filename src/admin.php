@@ -31,5 +31,13 @@ if (file_exists('../'.ORGANIZATION_FILE)){
 <?php
 }
 ?>
+	<section class="w3-panel w3-card-4">
+		<h2 class="w3-container w3-blue">Informativa sui Cookie</h2>
+		<p class="w3-container">Questa sezione del sito utilizza 
+		<a href="https://www.garanteprivacy.it/cookie" title="Cookie e privacy: dalla parte degli utenti">
+		cookie tecnici</a> per gestire la sessione utente.
+		Tali cookie non vengono mai utilizzati a fini di profilazione e vengono rimossi al termine della sessione,
+		ossia quando viene premuto il tasto <em>ESCI</em>.</p> 
+	</section>
 </body>
 </html>
