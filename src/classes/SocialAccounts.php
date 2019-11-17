@@ -11,7 +11,8 @@ class SocialAccounts{
 		$this->presentations = array(
 			'http://www.facebook.com' => new AccountPresentation('icons/iconfinder_facebook_alt_115478.png','facebook','facebook_page_name','facebook_page_url'),
 			'http://www.twitter.com' => new AccountPresentation('icons/iconfinder_02_111031.png','twitter','twitter_name','twitter_feed_url'),
-			'https://github.com' => new AccountPresentation('icons/GitHub-Mark-120px-plus.png','Organizzazione su GitHub','github_name','github_url')
+			'https://github.com' => new AccountPresentation('icons/GitHub-Mark-120px-plus.png','Organizzazione su GitHub','github_name','github_url'),
+			'https://www.youtube.com' => new AccountPresentation('icons/youtube.png','Canale Youtube','youtube_name','youtube_url')
 		);
 	}
 
