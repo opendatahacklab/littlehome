@@ -32,6 +32,13 @@ $disablelinktxt='';
 	<meta property="og:url" content="<?=$uri?>" />	
 	<meta property="og:title" content="<?=$title?>" />
 	<meta property="og:type" content="article" />
+<?php
+	if (isset($a->image)){
+?>
+	<meta property="og:image" content="<?=$a->image?>" />
+<?php
+	}
+?>
 </head>
 <body>
 <?php

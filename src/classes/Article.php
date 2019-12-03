@@ -8,6 +8,7 @@ class Article{
 	public $fieldsPrefix;
 	public $title;
 	public $date;
+	public $image;
 	public $content;
 
 	function __construct($fieldsPrefix=""){
@@ -93,6 +94,8 @@ class Article{
 						$this->title=$value;
 					if ($key==='date')
 						$this->date=DateTimeImmutable::createFromFormat ('Ymd', $value);
+					if ($key==='image')
+						$this->image=$value;
 				}
 			}
 		}

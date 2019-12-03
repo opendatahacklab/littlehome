@@ -32,5 +32,14 @@ $title=htmlentities($a->title);
 	}
 ?>
 		<h1 class="title"><?=$title?></h1>
+<?php
+	if (isset($a->image)){
+		$image=$a->image;
+?>
+		<img src="<?=$image?>" />
+<?php
+	}
+?>
+
 		<?=$c?>
 	</section>
