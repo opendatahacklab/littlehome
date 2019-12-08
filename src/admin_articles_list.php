@@ -38,7 +38,7 @@ $utils=new LDUtils();
 		foreach($l->json->{'rss:items'}->{'rdf:li'} as $a){
 			$title=$a->{'rss:title'};
 			$url=$a->{'@id'};
-			$date=DateTime::createFromFormat(DateTimeInterface::ISO8601, $a->{'dc:date'})->format('d/m/Y');
+			$date=DateTime::createFromFormat(Articles::ISO8601, $a->{'dc:date'})->format('d/m/Y');
 			if (!$utils->isAbsoluteURL($url))
 				$link='viewArticle.php?url='.urlencode('../'.$url);
 			else

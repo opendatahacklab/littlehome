@@ -87,7 +87,7 @@ if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'}) || isset($j->{'foaf:
 			$a=$articles[$i];
 			$title=$a->{'rss:title'};
 			$url=$a->{'@id'};
-			$date=DateTime::createFromFormat(DateTimeInterface::ISO8601, $a->{'dc:date'})->format('d/m/Y');
+			$date=DateTime::createFromFormat(Articles::ISO8601, $a->{'dc:date'})->format('d/m/Y');
 			if (!$utils->isAbsoluteURL($url))
 				$url=$srcpath.'/viewArticle.php?url='.urlencode('../'.$url);
 			echo "<li><em class=\"date\">$date</em> <a $disablelinktxt href=\"$url\">$title</a></li>\n";

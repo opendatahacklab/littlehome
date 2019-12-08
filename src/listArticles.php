@@ -52,7 +52,7 @@ $utils=new LDUtils();
 	if ($n>$i)
 		for(;$i<$n; $i++){
 			$a=$lis[$i];
-			$date=DateTime::createFromFormat(DateTimeInterface::W3C, $a->{'dc:date'});	
+			$date=DateTime::createFromFormat(Articles::W3CDATE, $a->{'dc:date'});	
 			$dateStr=$date->format('d/m/Y');
 			$title=$a->{'rss:title'};
 			$url=$a->{'@id'};

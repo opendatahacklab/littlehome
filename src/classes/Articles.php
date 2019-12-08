@@ -4,6 +4,9 @@
   */
 class Articles extends JsonHelper{
 
+	const ISO8601 = 'Y-m-d\TH:i:sO';
+	const W3CDATE = 'Y-m-d\TH:i:sP';
+
 	public function __construct(){
         	parent::__construct('articles.json'); 
 	}
@@ -34,7 +37,7 @@ class Articles extends JsonHelper{
 		$item=new stdClass();
 		$item->{'rss:title'}=$a->title;
 		$item->{'@id'}=$uri;
-		$item->{'dc:date'}=$a->date->format(DateTimeInterface::W3C);
+		$item->{'dc:date'}=$a->date->format(Articles::W3CDATE);
 
 		$items=$this->json->{'rss:items'};
 		if (!isset($items->{'rdf:li'})){
@@ -46,7 +49,7 @@ class Articles extends JsonHelper{
 		$n=count($items->{'rdf:li'});
 		for($i=0; $i<$n; $i++){
 			$x=$items->{'rdf:li'}[$i];
-			$xdate=DateTime::createFromFormat(DateTimeInterface::W3C, $x->{'dc:date'});
+			$xdate=DateTime::createFromFormat(Articles::W3CDATE, $x->{'dc:date'});
 			if ($xdate->getTimestamp()<$a->date->getTimestamp())
 				break;
 		}
@@ -105,7 +108,7 @@ class Articles extends JsonHelper{
 		$n=count($articles);
 		for($i=0; $i<$n; $i++){
 			$a=$articles[$i];
-			$atime=DateTime::createFromFormat(DateTimeInterface::ISO8601, $a->{'dc:date'})->getTimestamp();
+			$atime=DateTime::createFromFormat(Articles::ISO8601, $a->{'dc:date'})->getTimestamp();
 			if ($atime<=$currentTime)
 				return $i;
 		}
