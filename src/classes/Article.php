@@ -16,6 +16,7 @@ class Article{
 		$this->title='';
 		$this->date=new DateTimeImmutable();
 		$this->content='';
+		$this->image='';
 	}
 
 	/**
@@ -68,7 +69,13 @@ class Article{
 	  * @return FALSE if failure, TRUE otherwise 
 	  */
 	public function writeToFile($path){
-		$s="---\ntitle:".$this->title."\ndate:".$this->date->format('Ymd')."\n---\n".$this->content;		
+		$s="---\ntitle:".$this->title."\ndate:".$this->date->format('Ymd');
+		if (!empty($this->image)){
+			$imgurl=trim($this->image);
+			if(strlen($imgurl)>0)
+				$s.="\nimage:$imgurl";
+		}
+		$s.="\n---\n".$this->content;		
 		return file_put_contents($path,$s)!=FALSE;
 	}
 
@@ -119,6 +126,7 @@ class Article{
 	private function readFromFields($vars){
 		$this->title=$vars[$this->fieldsPrefix.'title'];
 		$this->date=DateTimeImmutable::createFromFormat ('Y-m-d', $vars[$this->fieldsPrefix.'date']);
+		$this->image=$vars[$this->fieldsPrefix.'image'];
 		$this->content=$vars[$this->fieldsPrefix.'content'];
 	}
 
@@ -146,6 +154,7 @@ class Article{
 	public function storeInSession(){
 		$_SESSION[$this->fieldsPrefix.'title']=$this->title;
 		$_SESSION[$this->fieldsPrefix.'date']=$this->date->format('Y-m-d');
+		$_SESSION[$this->fieldsPrefix.'image']=$this->image;
 		$_SESSION[$this->fieldsPrefix.'content']=$this->content;
 	}
 

@@ -24,6 +24,9 @@ $date=$a->date->format('Y-m-d');
 			<fieldset class="w3-container">
 				<p><label for="title">Titolo</label><input type="text" class="w3-input w3-border" name="title" value="<?=$a->title?>" required /></p>
 				<p><label for="date">Data</label><input type="date" class="w3-input w3-border" name="date" value="<?=$date?>" required /></p>
+				<p>
+					<label for="image">Indirizzo web (URI) dell'immagine da visualizzare nel post</label>
+<input type="url" name="image" class="w3-input w3-border" value="<?=$a->image?>" />					
 				<p><label for="content">Testo</label>
 				<textarea name="content" class="w3-input w3-border" rows="10"><?=$a->content?></textarea></p>
 			</fieldset>
