@@ -45,7 +45,8 @@ $utils=new LDUtils();
 				$link=$url;
 
 			$removeArticleURL='admin_article_remove.php?url='.urlencode($url);			
-			echo "\t\t<tr>\n\t\t\t<td class=\"date\">$date</td>\n\t\t\t<td><a target=\"_blank\" href=\"$link\">$title</a></td>\n\t\t\t<td class=\"w3-right-align\"><a href=\"$removeArticleURL\" class=\"w3-btn w3-teal\">&#x2501; Elimina</a></td>\n\t\t</tr>\n";
+			$updateArticleURL='admin_article_update.php?updateURI='.urlencode($url);			
+			echo "\t\t<tr>\n\t\t\t<td class=\"date\">$date</td>\n\t\t\t<td><a target=\"_blank\" href=\"$link\">$title</a></td>\n\t\t\t<td class=\"w3-right-align\"><a href=\"$updateArticleURL\" class=\"w3-btn w3-teal\">Modifica</a> <a href=\"$removeArticleURL\" class=\"w3-btn w3-teal\">&#x2501; Elimina</a></td>\n\t\t</tr>\n";
 		} 
 		echo "\t</table>\n</div>\n";	
 	} else

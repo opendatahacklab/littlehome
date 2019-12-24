@@ -12,14 +12,17 @@ require_once('classes/AdminArticleUtils.php');
 $p=new Password();
 $p->readFromFile('../'.PASSWORD_FILE);
 
-function writeArticle(){
+function updateArticle(){
 	$filename=(new DateTimeImmutable())->format('YmdHisu').'.md';
 	$a=new Article();
 	$a->readFromSession();
+	$oldURI=$_SESSION['oldURI'];
 	session_destroy();
+
 	$u=new AdminArticleUtils(ARTICLES_DIR, ARTICLES_FILE);
-	return $u->addArticle($filename, $a, '..');
+	if ($u->removeArticle($oldURI,'..')==FALSE) return FALSE;	
+	return $u->addArticle($filename,$a,'..');
 }
 
-$p->secure("Nuovo Articolo","admin_article_preview.php",'writeArticle');
+$p->secure("Modifica Articolo","admin_article_update_preview.php",'updateArticle');
 ?>
