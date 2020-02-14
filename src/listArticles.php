@@ -25,7 +25,8 @@ $utils=new LDUtils();
 <head>
 	<title><?=$orgName?> - Articoli</title>
 	<meta charset="UTF-8" />
-	<link rel="stylesheet" type="text/css" href="<?=$css?>">
+	<link rel="stylesheet" type="text/css" href="<?=$css?>" />
+	<link rel="alternate" href="rss1feed.php" title="atricles feed" type="application/rss+xml" />
 </head>
 <body>
 	<header>
@@ -35,10 +36,14 @@ $utils=new LDUtils();
 		<a href="../index.php" title="pagina principale"><img class="logo" src="<?=$logo?>" /></a>
 <?php } ?>
 		<p class="orgname"><?=$orgName?></p>
+		<p class="indirizzo">
 <?php
 	if ($address)
-		echo "\t\t<p class=\"indirizzo\">$address</p>\n";
+		echo "\t\t\t$address\n";
+	echo "\t\t\t<a href=\"rss1feed.php\" title=\"RSS 1.0 Feed\" type=\"application/rss+xml\"><img src=\"icons/rss-feed-icon.png\" alt=\"RSS feed icon\"></img></a>\n";
+
 ?>
+		</p>
 	</header>
 	<nav> <a href="../index.php">&lt;&lt; pagina principale</a></nav>
 	

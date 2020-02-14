@@ -29,6 +29,7 @@ $disablelinktxt='';
 	<title><?=$title?></title>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" type="text/css" href="<?=$css?>" />
+	<link rel="alternate" href="src/rss1feed.php" title="atricles feed" type="application/rss+xml" />
 	<meta property="og:url" content="<?=$uri?>" />	
 	<meta property="og:title" content="<?=$title?>" />
 	<meta property="og:type" content="website" />
