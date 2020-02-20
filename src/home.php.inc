@@ -76,7 +76,7 @@ if (isset($j->{'foaf:mbox'}) || isset($j->{'foaf:account'}) || isset($j->{'foaf:
 	$i=$l->getFirstPastArticleIndex();
 	$articles=$l->json->{'rss:items'}->{'rdf:li'};
 	$numArticles=isset($articles) ? count($articles) : 0;
-	if ($numArticles>$i){
+	if ($i!==FALSE && $numArticles>$i){
 ?>
 	<section>
 		<h2>Articoli</h2>
