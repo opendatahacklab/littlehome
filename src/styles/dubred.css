@@ -1,6 +1,8 @@
 @import url('https://fontlibrary.org/face/roboto');
 @import url('https://fontlibrary.org/face/montserrat');
 @import url('https://fontlibrary.org/face/connection');
+@import url('https://fontlibrary.org/face/bebas');
+
 
 body{
 	color:#424242;
@@ -38,7 +40,9 @@ h2{
 	background-color: #7e0f17;
 	color:white;
 	text-align:center;
+	font-size:2em;
 }
+
 h1,h2, p.orgname{
 	font-weight: normal;
 	font-style: normal; 
@@ -46,16 +50,12 @@ h1,h2, p.orgname{
 	padding-top: 0.4em;
 	padding-bottom: 0.4em;
 	text-transform: uppercase;
-	font-family: 'Bebas';
+	font-family: 'BebasNeueRegular';
 }
 
 h1,p.orgname{
 	color: #be1522;
-	font-size:1.4em;
-}
-
-h2{
-	font-size:1.1em;
+	font-size:2em;
 }
 
 *.title{
@@ -63,7 +63,7 @@ h2{
 	font-size: 2em;
 	margin-bottom:1em;
 	text-transform: uppercase;
-	font-family: 'Bebas';
+	font-family: 'BebasNeueRegular';
 	background-color: #7e0f17;
 	color:white;
 }
