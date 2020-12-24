@@ -15,6 +15,10 @@
 		{
 			"url": "src/styles/cyangray.css",
 			"label": "deep gray"
+		},
+		{
+			"url": "src/styles/dubred.css",
+			"label": "dubred"
 		}
 	],
 	"selected": "src/styles/cyangray.css"

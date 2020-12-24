@@ -14,8 +14,13 @@ $utils=new LDUtils();
 
 $s=new Styles();
 if (!($s->readFromSession())){
+	$baseStyles = new Styles();
+	$baseStyles->readFromFile('styles_base.json'); 
 	if (!($s->readFromFile("../".STYLES_FILE)))
-		$s->readFromFile('styles_base.json');
+		$s=$baseStyles;
+	else
+		//here we import new available styles but with preserving selected
+		$s->json->available=$baseStyles->json->available;
 	$selected=$s->json->selected;
 	$s->storeInSession();
 } else if ($s->readSelectedFromForm($_POST))

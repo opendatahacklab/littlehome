@@ -1,0 +1,169 @@
+@import url('https://fontlibrary.org/face/roboto');
+@import url('https://fontlibrary.org/face/montserrat');
+@import url('https://fontlibrary.org/face/connection');
+
+body{
+	color:#424242;
+	background-color:#be1522;
+	margin:0;
+	padding:0;
+	font-family: "OpenSans", Arial, sans-serif;
+	
+}
+
+@media only screen and (max-device-width: 600px) {
+  body {
+	font-size: 16pt;
+  }
+}
+
+@media not screen and (max-device-width: 600px) {
+  body {
+  }
+}
+
+header{
+	display: block;
+	margin : 0;
+	padding : 0 5% 0 5%;
+	background-color : white;
+	min-height : 6em;
+}
+
+h1{
+	font-size: 2.5em;
+}
+
+h2{
+	background-color: #7e0f17;
+	color:white;
+	text-align:center;
+}
+h1,h2, p.orgname{
+	font-weight: normal;
+	font-style: normal; 
+	margin:0;
+	padding-top: 0.4em;
+	padding-bottom: 0.4em;
+	text-transform: uppercase;
+	font-family: 'Bebas';
+}
+
+h1,p.orgname{
+	color: #be1522;
+	font-size:1.4em;
+}
+
+h2{
+	font-size:1.1em;
+}
+
+*.title{
+	text-align : center;
+	font-size: 2em;
+	margin-bottom:1em;
+	text-transform: uppercase;
+	font-family: 'Bebas';
+	background-color: #7e0f17;
+	color:white;
+}
+
+img.logo{
+	float:left;
+	max-width: 8em;
+	max-height:5em;
+
+	vertical-align : middle;
+	padding: 0.4em 1em 0 0;
+	margin:0;
+}
+
+p.indirizzo{
+	// color:rgb(188, 188, 193);
+	margin-top: 0;
+}
+
+p.indirizzo img{
+	max-height: 1.2em;
+	vertical-align:middle;
+}
+
+section{
+	background-color: white;
+	margin-top:2em;
+	margin-bottom:1em;
+	margin-left:5%;
+	margin-right:5%;
+	padding:0 0 1em 0;
+	box-shadow: -1px 1px 3px;
+}
+
+section p{
+	padding-right : 1em;
+	padding-left : 1em;
+}
+
+abbr{
+	text-decoration:none;
+}
+
+ul.contacts{
+	list-style-type:none;
+	list-style-position:inside;
+	margin:0;
+	padding:0 0.5em 0 0.5em;
+}
+ul.contacts li{
+	line-height: 3em;
+}
+
+ul.contacts li img{
+	vertical-align : middle;
+	height:2em;
+	width:2em;
+	margin : 0.2em;
+	padding:0;
+}
+
+a, a:link, a:visited, a:hover, a:active{
+	color : #7f0f17;
+	font-weight: bold;
+	font-style: italic;
+}
+
+a:link, a:visited{
+	text-decoration : none;
+}
+
+ a:hover, a:active{
+	text-decoration : underline;
+}
+
+*.date{
+	font-family:Consolas,"courier new";
+	font-style : normal;
+	margin-bottom:0;
+} 
+
+ol{
+	list-style-type : none;
+	margin:0;
+	padding:0;
+}
+
+ol li{
+	margin:0.5em auto 0.5em 1em;
+}
+
+nav{
+	margin: 0.2em 0.2em 0.2em auto;
+	text-align : right;
+}
+
+#article img{
+	max-width:100%;
+	display:block;
+	max-width:100%;
+	margin-left:auto;
+	margin-right:auto;
+}
