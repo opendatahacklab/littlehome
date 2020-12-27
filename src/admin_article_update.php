@@ -28,7 +28,7 @@ $date=$a->date->format('Y-m-d');
 	<link rel="stylesheet" type="text/css" href="admin.css" />
 </head>
 <body>
-	<h1>Amministrazione Sito - Nuovo Articolo</h1>
+	<h1>Amministrazione Sito - Modifica Articolo</h1>
 	<form action="admin_article_update_preview.php" method="POST" enctype="multipart/form-data">
 		<div class="w3-card-4">
 			<fieldset class="w3-container">

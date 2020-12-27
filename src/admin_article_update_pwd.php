@@ -20,8 +20,9 @@ function updateArticle(){
 	session_destroy();
 
 	$u=new AdminArticleUtils(ARTICLES_DIR, ARTICLES_FILE);
-	if ($u->removeArticle($oldURI,'..')==FALSE) return FALSE;	
-	return $u->addArticle($filename,$a,'..');
+	return $u->updateArticle($oldURI, $a, '..');
+//	if ($u->removeArticle($oldURI,'..')==FALSE) return FALSE;	
+//	return $u->addArticle($filename,$a,'..');
 }
 
 $p->secure("Modifica Articolo","admin_article_update_preview.php",'updateArticle');

@@ -39,6 +39,18 @@ class AdminArticleUtils{
 	}
 
 	/**
+	 * just replace the markdown file contents
+	 *
+	 * @return FALSE if fail
+	 */
+	public function updateArticle($uri, $article, $pathToRoot='.'){
+		$u=new LDUtils();
+		if ($u->isAbsoluteUrl($uri))
+			return FALSE;
+		return $article->writeToFile($pathToRoot.'/'.$uri);
+	}
+
+	/**
 	 * Remove the Markdown file and the article from the articles list.
 	 * @param $uri URI of the article to be removed.
 	 * @param $pathToRoot path from the current execution directory to the root directory (the one where index.php is 		 */
