@@ -5,6 +5,7 @@ require_once('classes/Organization.php');
 require_once('classes/Styles.php');
 require_once('classes/ConfigHelper.php');
 require_once('classes/Articles.php');
+require_once('classes/AccessLogUtils.php');
 
 $c=new ConfigHelper(ORGANIZATION_FILE, STYLES_FILE);
 $j=$c->organization->json;
@@ -22,6 +23,7 @@ $utils=new LDUtils();
 $srcpath='src';
 $uri=$utils->getCurrentPageURI();
 $disablelinktxt='';
+AccessLogUtils::logAccess($uri, ACCESS_FILE_PATH);
 ?>
 <!DOCTYPE html>
 <html lang="it">

@@ -10,6 +10,7 @@ require_once('classes/ConfigHelper.php');
 require_once('classes/Michelf/MarkdownInterface.php');
 require_once('classes/Michelf/Markdown.php');
 require_once('classes/Article.php');
+require_once('classes/AccessLogUtils.php');
 
 $utils=new LDUtils(); 
 $c=new ConfigHelper('../'.ORGANIZATION_FILE, '../'.STYLES_FILE);
@@ -22,6 +23,7 @@ $a=Article::readFromGETParameterURL();
 $title=$a->title;
 $uri=$utils->getCurrentPageURI();
 $disablelinktxt='';
+AccessLogUtils::logAccess($utils->getCurrentPageURI(), '../'.ACCESS_FILE_PATH);
 ?>
 <!DOCTYPE html>
 <html lang="it" xmlns:og="http://ogp.me/ns#">

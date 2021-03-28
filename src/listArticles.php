@@ -8,6 +8,7 @@ require_once('classes/Organization.php');
 require_once('classes/Styles.php');
 require_once('classes/ConfigHelper.php');
 require_once('classes/Articles.php');
+require_once('classes/AccessLogUtils.php');
 
 $c=new ConfigHelper('../'.ORGANIZATION_FILE, '../'.STYLES_FILE);
 $orgName=$c->getName();
@@ -19,6 +20,7 @@ $l=new Articles();
 $l->readFromFile('../'.ARTICLES_FILE) or die('unable to read ../'.ARTICLES_FILE); 
 
 $utils=new LDUtils();
+AccessLogUtils::logAccess($utils->getCurrentPageURI(), '../'.ACCESS_FILE_PATH);
 ?>
 <!DOCTYPE html>
 <html lang="it">
