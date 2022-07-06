@@ -34,7 +34,7 @@ setup(
 
     install_requires=["setuptools",
                       "rdflib",
-                      "lxml==1.3.6",
+                      "lxml==4.9.1",
                       "SimpleTAL",
                       "Babel",
                       ],
